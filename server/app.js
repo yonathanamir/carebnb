@@ -32,8 +32,15 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   }
 });
 
+app.use('/', function(req, res, next){
+    dbs.getDb().then(db => {
+        req.dbs = db;
+        next();
+    })
+});
+
 app.use('/graphql', graphqlHTTP({
-    schema: schema,
-    graphiql: true,
-    context: { dbs }
-}));
+        schema: schema,
+        graphiql: true,
+    })
+);

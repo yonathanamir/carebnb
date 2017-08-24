@@ -19,7 +19,7 @@ let HowToContact = new graphql.GraphQLObjectType({
         whatsapp: { type:  graphql.GraphQLBoolean },
         sms: { type:  graphql.GraphQLBoolean},
         call: { type:  graphql.GraphQLBoolean },
-        mail: { type:  graphql.GraphQLBoolean }
+        email: { type:  graphql.GraphQLBoolean }
     }
 });
 
@@ -27,7 +27,6 @@ let Owner = new graphql.GraphQLObjectType({
     name: 'Owner',
     fields: {
         id: { type: graphql.GraphQLID },
-        username: { type:  graphql.GraphQLString },
         contact: {type: Contact},
         howToContact: {type: HowToContact}
     }
