@@ -4,6 +4,7 @@ module.exports = {
 };
 
 const db = require('./dbs');
+const _ = require('lodash');
 
 function addOwner(req, res, next) {
     db.getDb().then(doc => {
@@ -17,6 +18,23 @@ function addOwner(req, res, next) {
                 res.json(owner);
             });
     });
+}
+
+function approveOwner(req, res){
+    let id = req.swagger.params.ownerId.value;
+    let isApproved = req.swagger.params.isApproved.value;
+
+    db.getDb().then(doc => {
+        let owners = doc.owners;
+
+        let owner = _.find(owners, {id});
+        owner.approved = isApproved;
+
+        return db.setDb(doc)
+            .then(s => {
+                res.json(owner);
+            });
+    })
 }
 
 function getOwners(req, res) {

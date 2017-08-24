@@ -31,5 +31,4 @@ function getApprovals(req, res) {
     db.getDb().then(doc => {
         res.json(doc.approvals)
     });
-
 }
