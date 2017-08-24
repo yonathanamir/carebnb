@@ -12,9 +12,11 @@ angular.module('myApp.owner-submission', ['ngRoute'])
 
     .controller('ownerSubmissionCtrl', ['ownerSubmissionService', function (service) {
         this.submit = ()=> {
+            const pf = `data:${this.profilePicture.filetype};base64,${this.profilePicture.base64}`;
+            const idp = `data:${this.idPicture.filetype};base64,${this.idPicture.base64}`;
             service.addOwner({
                 contact: {
-                    idPicture: 'THIS WILL NOT WORK BECAUSE THERE WAS NO INPUT',
+                    idPicture: idp,
                     id: this.id,
                     name: this.name,
                     phone: this.phone,
@@ -22,8 +24,8 @@ angular.module('myApp.owner-submission', ['ngRoute'])
                     city: 'THIS WILL NOT WORK BECAUSE THERE WAS NO INPUT',
                     address: this.address
                 },
-                profilePicture: 'THIS WILL NOT WORK BECAUSE THERE WAS NO INPUT',
-                howToContact:{
+                profilePicture: pf,
+                howToContact: {
                     whatsapp: this.contact.whatsapp,
                     call: this.contact.phone,
                     email: this.contact.email,
