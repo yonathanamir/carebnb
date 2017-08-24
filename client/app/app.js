@@ -6,6 +6,7 @@ angular.module('myApp', [
     'ngMaterial',
     'jkAngularCarousel',
   'myApp.resource-submission',
+  'myApp.resource-approve',
   'myApp.owner-submission',
   'myApp.version'
 ]).
