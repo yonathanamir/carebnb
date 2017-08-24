@@ -4,13 +4,12 @@
 angular.module('myApp', [
   'ngRoute',
     'ngMaterial',
-  'myApp.view1',
-  'myApp.view2',
+    'jkAngularCarousel',
   'myApp.resource-submission',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/resource-submission'});
 }]);
