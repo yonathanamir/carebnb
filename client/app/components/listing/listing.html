@@ -1,0 +1,6 @@
+<h1>Room by {{listingData.owner.contact.name}}</h1>
+
+<h2>Room requirements:</h2>
+<ul>
+    <li ng-repeat="(label, value) in listingData.requirements">{{label}}: {{value | requirements}}</li>
+</ul>

@@ -7,6 +7,7 @@ angular.module('myApp', [
     'jkAngularCarousel',
   'myApp.resource-submission',
   'myApp.owner-submission',
+  'myApp.room-search',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
