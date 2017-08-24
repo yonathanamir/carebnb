@@ -85,6 +85,16 @@ definitions:
             type: string
           address:
             type: string
+      howToContact:
+        properties:
+          whatsup:
+            type: boolean
+          sms:
+            type: boolean
+          call:
+            type: boolean
+          mail:
+            type: boolean
       username:
         type: string
       password:

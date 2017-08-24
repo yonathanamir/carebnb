@@ -34,6 +34,12 @@ module.exports = {
                 "city": "Har Adar",
                 "address": "75 Hagay st."
             },
+            "howToContact": {
+                "whatsup": false,
+                "sms": false,
+                "call": false,
+                "mail": false
+            },
             "username": "gilad94s",
             "password": "meleh",
             "id": "0"
@@ -45,6 +51,12 @@ module.exports = {
                 "mail": "tunamir18@gmail.com",
                 "city": "Kfar Saba",
                 "address": "14 Emek Zvulun st."
+            },
+            "howToContact": {
+                "whatsup": false,
+                "sms": false,
+                "call": false,
+                "mail": false
             },
             "username": "yonathana",
             "password": "efes",
