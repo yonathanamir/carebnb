@@ -43,9 +43,52 @@ paths:
           schema:
             $ref: "#/definitions/Generic"
 
+  /owners:
+    x-swagger-router-controller: owners
+    get:
+      operationId: getOwners
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
+    post:
+      operationId: addOwner
+      parameters:
+        - name: owner
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Owner'
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
 definitions:
   Generic:
     description: generic
+
+  Owner:
+    properties:
+      id:
+        type: string
+      contact:
+        properties:
+          name:
+            type: string
+          phone:
+            type: string
+          mail:
+            type: string
+          city:
+            type: string
+          address:
+            type: string
+      username:
+        type: string
+      password:
+        type: string
 
   Resource:
     properties:
