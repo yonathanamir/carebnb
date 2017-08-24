@@ -2,11 +2,18 @@
 
 angular.module('myApp.owner-submission')
     .factory('ownerSubmissionService', ['$http', function ($http) {
-        return {
+        let url = 'http://localhost:10010/owners';
 
+        return {
+            addOwner,
+            getOwners
         };
 
-        function addResource(resource){
-            return $http.post('', resource).then(o => o.data);
+        function getOwners() {
+            return $http.get(url, resource).then(o => o.data);
+        }
+
+        function addOwner(owner) {
+            return $http.post(url, owner).then(o => o.data);
         }
     }]);
