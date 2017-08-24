@@ -169,13 +169,19 @@ definitions:
     properties:
       id:
         type: string
+      profilePicture:
+        type: string
       contact:
         properties:
+          idPicture:
+            type: string
+          id:
+            type: string
           name:
             type: string
           phone:
             type: string
-          mail:
+          email:
             type: string
           city:
             type: string
@@ -183,16 +189,14 @@ definitions:
             type: string
       howToContact:
         properties:
-          whatsup:
+          whatsapp:
             type: boolean
           sms:
             type: boolean
           call:
             type: boolean
-          mail:
+          email:
             type: boolean
-      username:
-        type: string
       password:
         type: string
 

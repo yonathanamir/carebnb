@@ -28,9 +28,10 @@ module.exports = {
     owners: [
         {
             "contact": {
+                "id": '312414659',
                 "name": "Gilad",
                 "phone": "0546940003",
-                "mail": "gilad94s@gmail.com",
+                "email": "gilad94s@gmail.com",
                 "city": "Har Adar",
                 "address": "75 Hagay st."
             },
@@ -38,17 +39,17 @@ module.exports = {
                 "whatsup": false,
                 "sms": false,
                 "call": false,
-                "mail": false
+                "email": false
             },
-            "username": "gilad94s",
             "password": "meleh",
             "id": "0"
         },
         {
             "contact": {
+                "id": '312414659',
                 "name": "Yonathan",
                 "phone": "0503936006",
-                "mail": "tunamir18@gmail.com",
+                "email": "tunamir18@gmail.com",
                 "city": "Kfar Saba",
                 "address": "14 Emek Zvulun st."
             },
@@ -56,9 +57,8 @@ module.exports = {
                 "whatsup": false,
                 "sms": false,
                 "call": false,
-                "mail": false
+                "email": false
             },
-            "username": "yonathana",
             "password": "efes",
             "id": "1"
         }
