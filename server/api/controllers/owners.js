@@ -6,10 +6,10 @@ module.exports = {
 const owners = require('./dbs').owners;
 
 function addOwner(req, res, next){
-    let resource = req.swagger.params.owner.value;
-    resource.id = owners.length.toString();
-    owners.push(resource);
-    res.json(resource);
+    let owner = req.swagger.params.owner.value;
+    owner.id = owners.length.toString();
+    owners.push(owner);
+    res.json(owner);
 }
 
 function getOwners(req, res){

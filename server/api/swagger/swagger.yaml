@@ -65,9 +65,90 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/Generic"
+
+  /orders:
+    x-swagger-router-controller: orders
+    get:
+      operationId: getOrders
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
+    post:
+      operationId: addOrder
+      parameters:
+        - name: owner
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
+
+  /approvals:
+    x-swagger-router-controller: approvals
+    get:
+      operationId: getApprovals
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
+    post:
+      operationId: addApproval
+      parameters:
+        - name: owner
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Approval'
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
+
 definitions:
   Generic:
     description: generic
+
+  Order:
+    properties:
+      resource:
+        type: string
+      startDate:
+        type: string
+        format: date-time
+      endDate:
+        type: string
+        format: date-time
+      id:
+        type: string
+      contractor:
+        type: string
+      customer:
+        type: string
+      confirmByOwner:
+        type: boolean
+
+  Approval:
+    properties:
+      type:
+        type: string
+      fk:
+        type: string
+      id:
+        type: string
+      comments:
+        type: string
+      contractor:
+        type: string
+      approved:
+        type: boolean
 
   Owner:
     properties:

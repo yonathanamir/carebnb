@@ -62,5 +62,7 @@ module.exports = {
             "password": "efes",
             "id": "1"
         }
-    ]
+    ],
+    orders: [],
+    approvals: []
 };
