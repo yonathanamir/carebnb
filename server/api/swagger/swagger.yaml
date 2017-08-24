@@ -206,10 +206,14 @@ definitions:
         properties:
           kosher:
             type: boolean
-          gender:
-            type: string
+          genders:
+            type: array
+            items:
+              type: string
           languages:
-            type: string
+            type: array
+            items:
+              type: string
           preferences:
             type: string
       id:

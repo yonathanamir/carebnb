@@ -11,36 +11,37 @@ var dbs = require('./api/controllers/dbs.js');
 module.exports = app; // for testing
 
 var config = {
-  appRoot: __dirname // required config
+    appRoot: __dirname // required config
 };
 
-SwaggerExpress.create(config, function(err, swaggerExpress) {
-  if (err) { throw err; }
-  app.use(cors());
+SwaggerExpress.create(config, function (err, swaggerExpress) {
+    if (err) {
+        throw err;
+    }
+    app.use(cors());
 
-  // install middleware
-  swaggerExpress.register(app);
+    app.use('/', function (req, res, next) {
+        dbs.getDb().then(db => {
+            req.dbs = db;
+            next();
+        })
+    });
 
-  var port = process.env.PORT || 10010;
-  app.listen(port);
+    app.use('/graphql', graphqlHTTP({
+            schema: schema,
+            graphiql: true,
+        })
+    );
+    // install middleware
+    swaggerExpress.register(app);
 
-  console.log('started in '+ process.env.NODE_ENV + 'on port '+ port);
+    var port = process.env.PORT || 10010;
+    app.listen(port);
+
+    console.log('started in ' + process.env.NODE_ENV + 'on port ' + port);
 
 
-  if (swaggerExpress.runner.swagger.paths['/hello']) {
-    console.log('try this:\ncurl http://127.0.0.1:' + port + '/hello?name=Scott');
-  }
+    if (swaggerExpress.runner.swagger.paths['/hello']) {
+        console.log('try this:\ncurl http://127.0.0.1:' + port + '/hello?name=Scott');
+    }
 });
-
-app.use('/', function(req, res, next){
-    dbs.getDb().then(db => {
-        req.dbs = db;
-        next();
-    })
-});
-
-app.use('/graphql', graphqlHTTP({
-        schema: schema,
-        graphiql: true,
-    })
-);
