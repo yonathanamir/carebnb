@@ -101,12 +101,12 @@ definitions:
           gender:
             type: string
           languages:
-            type: array
-            items:
-              type: string
+            type: string
           preferences:
             type: string
       id:
+        type: string
+      address:
         type: string
       approved:
         type: boolean

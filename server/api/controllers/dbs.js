@@ -1,30 +1,27 @@
 module.exports = {
     resources: [
         {
-            "owner": "Gilad",
+            "owner": "0",
             "requirements": {
                 "kosher": true,
                 "gender": "male",
-                "languages": [
-                    "hebrew"
-                ],
+                "languages": "hebrew",
                 "preferences": "Anybody but Yonathan Amir thanks."
             },
             "approved": false,
+            "address": "Pinsker 50 Tel Aviv",
             "id": "0"
         },
         {
-            "owner": "Yonathan",
+            "owner": "1",
             "requirements": {
                 "kosher": false,
                 "gender": "female",
-                "languages": [
-                    "hebrew",
-                    "english"
-                ],
+                "languages": "hebrew,english",
                 "preferences": "I'm only here for Gilad, tell him I'm sorry and I love HIM thanks."
             },
             "approved": true,
+            "address": "Pinsker 50 Tel Aviv",
             "id": "1"
         }
     ],
