@@ -30,6 +30,9 @@
                       md-select-on-focus></textarea>
         </md-input-container>
 
+        <label>Room Pictures</label>
+        <input type="file" ng-model="rscSubCtrl.pictures" multiple base-sixty-four-input/>
+
         <md-button ng-click="rscSubCtrl.submit()" type="submit" class="md-raised md-primary">Submit</md-button>
     </form>
 </md-content>
