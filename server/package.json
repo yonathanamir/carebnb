@@ -12,6 +12,8 @@
     "express": "^4.12.3",
     "mongodb": "^2.2.31",
     "q": "^1.5.0",
+    "express-graphql": "^0.6.7",
+    "graphql": "^0.10.5",
     "swagger-express-mw": "^0.1.0"
   },
   "devDependencies": {

@@ -17,7 +17,7 @@ function getConnection() {
     });
 }
 function close(db) {
-    return db.close()
+   // return db.close()
 }
 
 function getDb() {
