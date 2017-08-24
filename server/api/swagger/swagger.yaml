@@ -10,7 +10,6 @@ basePath: /
 schemes:
   # tip: remove http to make production-grade
   - http
-  - https
 # format of bodies a client can send (Content-Type)
 consumes:
   - application/json
@@ -18,43 +17,54 @@ consumes:
 produces:
   - application/json
 paths:
-  /hello:
-    # binds a127 app logic to a route
-    x-swagger-router-controller: hello_world
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+  /resources:
+    x-swagger-router-controller: resources
     get:
-      description: Returns 'Hello' to the caller
-      # used as the method name of the controller
-      operationId: hello
-      parameters:
-        - name: name
-          in: query
-          description: The name of the person to whom to say hello
-          required: false
-          type: string
+      operationId: getResources
       responses:
-        "200":
-          description: Success
-          schema:
-            # a pointer to a definition
-            $ref: "#/definitions/HelloWorldResponse"
-        # responses may fall through to errors
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /swagger:
-    x-swagger-pipe: swagger_raw
-# complex objects have schema definitions
+            $ref: "#/definitions/Generic"
+    post:
+      operationId: addResource
+      parameters:
+        - name: resource
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Resource'
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
+
 definitions:
-  HelloWorldResponse:
-    required:
-      - message
+  Generic:
+    description: generic
+
+  Resource:
     properties:
-      message:
+      owner:
         type: string
-  ErrorResponse:
-    required:
-      - message
-    properties:
-      message:
+      requirements:
+        properties:
+          kosher:
+            type: boolean
+          gender:
+            type: string
+          languages:
+            type: array
+            items:
+              type: string
+          preferences:
+            type: string
+      id:
         type: string
+      approved:
+        type: boolean
+        default: false
