@@ -3,6 +3,10 @@
 var SwaggerExpress = require('swagger-express-mw');
 var app = require('express')();
 var cors = require('cors');
+var graphqlHTTP = require('express-graphql');
+
+var schema = require('./graphql/schema.js');
+var dbs = require('./api/controllers/dbs.js');
 
 module.exports = app; // for testing
 
@@ -27,3 +31,16 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
     console.log('try this:\ncurl http://127.0.0.1:' + port + '/hello?name=Scott');
   }
 });
+
+app.use('/', function(req, res, next){
+    dbs.getDb().then(db => {
+        req.dbs = db;
+        next();
+    })
+});
+
+app.use('/graphql', graphqlHTTP({
+        schema: schema,
+        graphiql: true,
+    })
+);
