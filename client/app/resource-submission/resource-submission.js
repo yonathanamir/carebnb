@@ -25,15 +25,20 @@ angular.module('myApp.resource-submission', ['ngRoute'])
         };
 
         this.submit = () => {
-            console.log('asdasd')
-            let gender = this.genderSelected.join(',');
-            let languages = this.languageSelected.join(',');
+            const pics = [];
+            if (this.pictures.length) {
+                this.pictures.forEach(pic => {
+                    pics.push(`data:${pic.filetype};base64,${pic.base64}`);
+                });
+            }
+
             service.addResource({
                 owner: this.user.id,
+                pictures: pics,
                 requirements: {
                     kosher: true,
-                    gender,
-                    languages,
+                    genders: this.genderSelected,
+                    languages: this.languageSelected,
                     preferences: this.biography
                 }
             })
