@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('myApp.resource-submission', ['ngRoute'])
+<<<<<<< HEAD
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/resource-submission', {
@@ -37,3 +38,16 @@ angular.module('myApp.resource-submission', ['ngRoute'])
       }
     ];
 }]);
+=======
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/resource-submission', {
+            templateUrl: 'resource-submission/resource-submission.html',
+            controller: 'resourceSubmissionCtrl',
+            controllerAs: 'rscSubCtrl'
+        });
+    }])
+
+    .controller('resourceSubmissionCtrl', [function () {
+        this.hi = 'what';
+    }]);
+>>>>>>> d22403275ae8e757e2d5b503636c2a65a8220ce6
