@@ -12,27 +12,51 @@ let query = new graphql.GraphQLObjectType({
                 ids: { type: graphql.GraphQLString},
                 kosher: { type: graphql.GraphQLBoolean },
                 language: { type: graphql.GraphQLString },
-                gender: { type: graphql.GraphQLString }
+                gender: { type: graphql.GraphQLString },
+                startDate: { type: graphql.GraphQLInt },
+                endDate: { type: graphql.GraphQLInt }
             },
             resolve(parent, args, { dbs }){
+                let resources = dbs.resources;
+
                 if (args.ids !== undefined){
                     let ids = args.ids.split(',');
-                    return _.filter(dbs.resources, o => _.includes(ids, o.id));
+                    resources = _.filter(resources, o => _.includes(ids, o.id));
                 }
 
                 if (args.kosher !== undefined){
-                    return _.filter(dbs.resources, o => o.requirements.kosher == args.kosher);
+                    resources = _.filter(resources, o => o.requirements.kosher == args.kosher);
                 }
 
                 if (args.language !== undefined){
-                    return _.filter(dbs.resources,
+                    resources = _.filter(resources,
                             o => _.includes(o.requirements.languages,  args.language));
                 }
 
                 if (args.gender !== undefined){
-                    return _.filter(dbs.resources,
-                        o => _.includes(o.requirements.gender,  args.gender));
+                    resources = _.filter(resources,
+                        o => _.includes(o.requirements.genders,  args.gender));
                 }
+
+                if (args.startDate !== undefined && args.endDate !== undefined){
+                    resources = _.filter(resources,
+                        r => {
+                            let orders = _.filter(dbs.orders, o => o.resource == r.id);
+                            let taken = _.find(orders, o => {
+                                /*return (o.startDate > args.startDate && o.endDate < args.startDate)
+                                        || (o.endDate > args.startDate && o.endDate < args.endDate)*/
+                                return ((args.startDate > o.startDate && args.startDate < o.endDate) || (args.endDate > o.startDate && args.endDate < o.endDate))
+                                    ||
+                                    ((o.startDate > args.startDate && o.startDate < args.endDate) || (o.endDate > args.startDate && o.endDate < args.endDate));
+                                }
+                            );
+
+                            return taken === undefined;
+                        }
+                    );
+                }
+
+                return resources;
             }
         },
         owner: {
