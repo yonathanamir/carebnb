@@ -3,16 +3,27 @@ module.exports = {
     getResources
 };
 
-const resources = require('./dbs').resources;
+const db = require('./dbs');
 
 function addResource(req, res, next){
-    let resource = req.swagger.params.resource.value;
-    resource.id = resources.length.toString();
-    resource.approved = false;
-    resources.push(resource);
-    res.json(resource);
+    db.getDb().then(doc => {
+        let resources = doc.resources;
+
+        let resource = req.swagger.params.resource.value;
+        resource.id = resources.length.toString();
+        resource.approved = false;
+        resources.push(resource);
+
+        return db.setDb(doc)
+            .then(s => {
+                res.json(resource);
+            });
+    });
 }
 
 function getResources(req, res){
-    res.json(resources)
+    db.getDb().then(doc => {
+        let resources = doc.resources;
+        res.json(resources)
+    });
 }
