@@ -35,7 +35,7 @@ module.exports = {
                 "address": "75 Hagay st."
             },
             "howToContact": {
-                "whatsup": false,
+                "whatsapp": false,
                 "sms": false,
                 "call": false,
                 "mail": false
@@ -53,7 +53,7 @@ module.exports = {
                 "address": "14 Emek Zvulun st."
             },
             "howToContact": {
-                "whatsup": false,
+                "whatsapp": false,
                 "sms": false,
                 "call": false,
                 "mail": false
