@@ -1,34 +1,35 @@
-<md-content>  
-    <form>
-      <jk-carousel
-        data="rscSubCtrl.dataArray"
-        item-template-url="'/components/carousel/item-template.html'"
-        max-width="800" 
-        max-height="500" >
+<md-content>
+    <form >
+        <jk-carousel
+                data="rscSubCtrl.dataArray"
+                item-template-url="'components/carousel/item-template.html'"
+                max-width="800"
+                max-height="500">
         </jk-carousel>
-    <div layout="row">
-    <md-input-container flex=50>
-    <label>Prefered Genders</label>
-        <md-select multiple ng-model="rscSubCtrl.genderSelected" placeholder="Select Gender">
-          <md-option ng-repeat="gender in rscSubCtrl.genderOptions" value="{{gender}}">{{gender}}</md-option>
-        </md-select>
-    </md-input-container>
+        <div layout="row">
+            <md-input-container flex=50>
+                <label>Prefered Genders</label>
+                <md-select multiple ng-model="rscSubCtrl.genderSelected" placeholder="Select Gender">
+                    <md-option ng-repeat="gender in rscSubCtrl.genderOptions" value="{{gender}}">{{gender}}</md-option>
+                </md-select>
+            </md-input-container>
         </div>
-    
-    <div layout="row">
-    <md-input-container flex=50>
-    <label>Languages</label>
-        <md-select multiple ng-model="rscSubCtrl.languageSelected" placeholder="Select Languages">
-          <md-option ng-repeat="l in rscSubCtrl.languageOptions" value="{{l}}">{{l}}</md-option>
-        </md-select>
-    </md-input-container>
-    </div>
-    
+
+        <div layout="row">
+            <md-input-container flex=50>
+                <label>Languages</label>
+                <md-select multiple ng-model="rscSubCtrl.languageSelected" placeholder="Select Languages">
+                    <md-option ng-repeat="l in rscSubCtrl.languageOptions" value="{{l}}">{{l}}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
         <md-input-container class="md-block">
-          <label>Prefrences</label>
-          <textarea ng-model="rscSubCtrl.biography" md-maxlength="150" rows="3" max-rows="3" md-select-on-focus></textarea>
+            <label>Prefrences</label>
+            <textarea ng-model="rscSubCtrl.biography" md-maxlength="150" rows="3" max-rows="3"
+                      md-select-on-focus></textarea>
         </md-input-container>
-        
-              <md-button class="md-raised md-primary">Submit</md-button>
-        </form>
+
+        <md-button ng-click="rscSubCtrl.submit()" type="submit" class="md-raised md-primary">Submit</md-button>
+    </form>
 </md-content>
