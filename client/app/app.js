@@ -6,6 +6,7 @@ angular.module('myApp', [
     'ngMaterial',
     'jkAngularCarousel',
   'myApp.resource-submission',
+  'myApp.owner-submission',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
