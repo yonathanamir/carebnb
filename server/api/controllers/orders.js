@@ -1,6 +1,7 @@
 module.exports = {
     addOrder,
-    getOrders
+    getOrders,
+    ownerConfirmOrder
 };
 
 const orders= require('./dbs').orders;
@@ -15,4 +16,10 @@ function addOrder(req, res){
 
 function getOrders(req, res){
     res.json(orders)
+}
+
+function ownerConfirmOrder(req, res){
+    let orderId = req.swagger.params.orderId.value;
+
+    orders[orderId].confirmByOwner = true;
 }

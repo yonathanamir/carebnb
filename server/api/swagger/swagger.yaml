@@ -89,6 +89,21 @@ paths:
           schema:
             $ref: "#/definitions/Generic"
 
+  /orders/{orderId}/owner-approve:
+      x-swagger-router-controller: orders
+      get:
+        operationId: ownerConfirmOrder
+        parameters:
+          - name: orderId
+            in: path
+            required: true
+            type: integer
+        responses:
+          default:
+            description: Error
+            schema:
+              $ref: "#/definitions/Generic"
+
   /approvals:
     x-swagger-router-controller: approvals
     get:
