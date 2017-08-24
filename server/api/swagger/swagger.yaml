@@ -78,7 +78,7 @@ paths:
     post:
       operationId: addOrder
       parameters:
-        - name: owner
+        - name: order
           in: body
           required: true
           schema:
@@ -136,11 +136,9 @@ definitions:
       resource:
         type: string
       startDate:
-        type: string
-        format: date-time
+        type: number
       endDate:
-        type: string
-        format: date-time
+        type: number
       id:
         type: string
       contractor:
