@@ -1,17 +1,23 @@
 'use strict';
 
 angular.module('myApp.resource-submission', ['ngRoute'])
-<<<<<<< HEAD
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/resource-submission', {
-    templateUrl: 'resource-submission/resource-submission.html',
-    controller: 'ResourceSubmissionCtrl'
-  });
+.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/resource-submission', {
+        templateUrl: 'resource-submission/resource-submission.html',
+        controller: 'resourceSubmissionCtrl',
+        controllerAs: 'rscSubCtrl'
+    });
 }])
 
-.controller('ResourceSubmissionCtrl','$scope' [function($scope) {
-    $scope.dataArray = [
+.controller('resourceSubmissionCtrl', [function () {   
+    this.genderOptions = ['Male', 'Female', 'Trans', 'Other'];
+    this.genderSelected = ['Male', 'Female', 'Trans', 'Other'];
+
+    this.languageOptions = ['Hebrew', 'English', 'French', 'Sfat Habet'];
+    this.languageSelected = ['Hebrew', 'English'];
+
+    this.dataArray = [
       {
         src: 'https://www.travelexcellence.com/images/movil/La_Paz_Waterfall.jpg'
       },
@@ -38,16 +44,3 @@ angular.module('myApp.resource-submission', ['ngRoute'])
       }
     ];
 }]);
-=======
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/resource-submission', {
-            templateUrl: 'resource-submission/resource-submission.html',
-            controller: 'resourceSubmissionCtrl',
-            controllerAs: 'rscSubCtrl'
-        });
-    }])
-
-    .controller('resourceSubmissionCtrl', [function () {
-        this.hi = 'what';
-    }]);
->>>>>>> d22403275ae8e757e2d5b503636c2a65a8220ce6
