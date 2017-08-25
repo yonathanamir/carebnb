@@ -11,28 +11,37 @@ angular.module('myApp.owner-submission', ['ngRoute'])
     }])
 
     .controller('ownerSubmissionCtrl', ['ownerSubmissionService', function (service) {
+
+        function alert2(message){
+            alert(message);
+            throw message
+        }
+
         this.submit = ()=> {
-            const pf = `data:${this.profilePicture.filetype};base64,${this.profilePicture.base64}`;
-            const idp = `data:${this.idPicture.filetype};base64,${this.idPicture.base64}`;
+            const pf = this.profilePicture ?`data:${this.profilePicture.filetype};base64,${this.profilePicture.base64}` : alert2('no profile picture');
+            const idp = this.idPicture ? `data:${this.idPicture.filetype};base64,${this.idPicture.base64}` : alert2('no id picture');
             service.addOwner({
                 contact: {
                     idPicture: idp,
-                    id: this.id,
-                    name: this.name,
-                    phone: this.phone,
-                    email: this.email,
-                    city: 'THIS WILL NOT WORK BECAUSE THERE WAS NO INPUT',
-                    address: this.address
+                    id: this.id || alert2('no ID'),
+                    name: this.name || alert2('no Name'),
+                    phone: this.phone || alert2('no phone'),
+                    email: this.email || alert2('no email'),
+                    city: this.city || alert2('no city'),
+                    address: this.address || alert2('no address')
                 },
                 profilePicture: pf,
                 howToContact: {
-                    whatsapp: this.contact.whatsapp,
+                    whatsapp: this.contact.whatsapp ,
                     call: this.contact.phone,
                     email: this.contact.email,
                     sms: this.contact.sms
                 },
-                password: 'THIS WILL NOT WORK BECAUSE THERE WAS NO INPUT'
-            });
+                password: this.password|| alert2('no password')
+            })
+            .then(newUser =>{
+                    alert('added seccessfuly :)');
+                });
         };
 
         this.contact = {

@@ -4,13 +4,15 @@ module.exports = {
     ownerConfirmOrder
 };
 
+const uuid = require('uuid/v4');
 const db = require('./dbs');
+const _ = require('lodash');
 
 function addOrder(req, res) {
     db.getDb().then(doc => {
         let orders = doc.orders;
         let order = req.swagger.params.order.value;
-        order.id = orders.length.toString();
+        order.id = uuid();
         order.confirmByOwner = false;
         orders.push(order);
 
@@ -29,9 +31,10 @@ function getOrders(req, res) {
 
 function ownerConfirmOrder(req, res) {
     let orderId = req.swagger.params.orderId.value;
+    let isApproved = req.swagger.params.isApproved.value;
 
     db.getDb().then(doc => {
-        doc.orders[orderId].confirmByOwner = true;
+        _.find(doc.orders, {id: orderId}).confirmByOwner = isApproved;
         db.setDb(doc)
             .then(s => {
                 res.json(true);
