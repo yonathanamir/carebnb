@@ -11,23 +11,17 @@ angular.module('myApp.room-search', ['ngRoute', 'myApp.listing'])
     }])
 
     .controller('roomSearchCtrl', ['roomSearchService', function (roomSearchService) {
-        roomSearchService.getRooms().then(data => {
-            this.rooms = data;
 
-            this.rooms.forEach(room => {
-                roomSearchService.getOwner(room.owner).then(owner => {
-                    room.owner = owner;
-                });
+        this.filter = function() {
+
+            if(!this.startDate || !this.endDate) {
+                return;
+            }
+
+            roomSearchService.getRooms(this.startDate.getTime() / 1000, this.endDate.getTime() / 1000,
+                    this.filterKosher, this.kosher, this.gender, this.languages).then(data => {
+                this.rooms = data.data.resources;
             });
-        });
-    }])
-    .filter('requirements', function () {
-        return function (input) {
-            if (Array.isArray(input)) {
-                return input.join(", ");
-            }
-            else {
-                return input;
-            }
-        }
-    });
+        };
+
+    }]);

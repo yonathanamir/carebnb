@@ -10,8 +10,51 @@ angular.module('myApp.room-search')
             getOwner
         };
 
-        function getRooms() {
-            return $http.get(url).then(o => o.data);
+        function getRooms(startDate, endDate, filterKosher, kosher, gender, languages) {
+
+            let queryArguments = "startDate: " + startDate + ", endDate: " + endDate;
+
+            if (filterKosher) {
+                queryArguments += ", kosher: " + kosher;
+            }
+
+            if(gender) {
+                queryArguments += ", gender: " + gender;
+            }
+
+            if(languages && languages.length > 0) {
+                queryArguments += ", language: " + languages.join(',');
+            }
+
+            let query = {query: "{" +
+                                    "resources (" + queryArguments + ") {" +
+                                        "id " +
+                                        "requirements {" +
+                                            "kosher " +
+                                            "genders " +
+                                            "languages " +
+                                            "preferences " +
+                                        "}" +
+                                        "approved " +
+                                        "owner {" +
+                                            "id " +
+                                            "contact {" +
+                                                "name " +
+                                                "phone " +
+                                                "mail " +
+                                                "city " +
+                                                "address " +
+                                            "}" +
+                                            "howToContact {" +
+                                                "whatsapp " +
+                                                "sms " +
+                                                "call " +
+                                                "email " +
+                                            "}" +
+                                        "}" +
+                                    "}" +
+                                "}"};
+            return $http.post(gqlURL, query).then(o => o.data);
         }
 
         function getOwner(owner) {

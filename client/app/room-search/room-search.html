@@ -1,7 +1,63 @@
 <md-content>
-    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-        <div ng-repeat="room in roomCtrl.rooms">
-            <listing listing-data="room"></listing>
+    <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
+        <h1>Filtering:</h1>
+        <div md-theme="docs-dark" layout-gt-sm="row">
+            <div>
+                <md-input-container>
+                    <label>Start Date: </label>
+                    <md-datepicker ng-model="roomCtrl.startDate" ng-change="roomCtrl.filter()"></md-datepicker>
+                </md-input-container>
+                <md-input-container>
+                    <label>End Date: </label>
+                    <md-datepicker ng-model="roomCtrl.endDate" ng-change="roomCtrl.filter()"></md-datepicker>
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container>
+                    <md-checkbox ng-model="roomCtrl.filterKosher"
+                                 style="display: inline-block"
+                                 ng-change="roomCtrl.filter()">
+                        Filter kosher?
+                    </md-checkbox>
+                    <span>
+                        Not Kosher
+                        <md-switch
+                                ng-model="roomCtrl.kosher"
+                                style="display: inline-block"
+                                ng-disabled="!(roomCtrl.filterKosher)"
+                                ng-change="roomCtrl.filter()">
+                            Kosher
+                        </md-switch>
+                    </span>
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container>
+                    <label>Gender</label>
+                    <md-select ng-model="roomCtrl.gender" md-on-close="roomCtrl.filter()">
+                        <md-option>None</md-option>
+                        <md-option ng-value="'male'">Male</md-option>
+                        <md-option ng-value="'female'">Female</md-option>
+                        <md-option ng-value="'trans'">Trans</md-option>
+                        <md-option ng-value="'other'">Other</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container>
+                    <label>Languages</label>
+                    <md-select ng-model="roomCtrl.languages" md-on-close="roomCtrl.filter()" multiple>
+                        <md-option ng-value="'hebrew'">Hebrew</md-option>
+                        <md-option ng-value="'english'">English</md-option>
+                        <md-option ng-value="'arabic'">Arabic</md-option>
+                        <md-option ng-value="'russian'">Russian</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
         </div>
+    </md-content>
+    <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
+        <h1>Results:</h1>
+        <listing ng-repeat="room in roomCtrl.rooms" listing-data="room"></listing>
     </md-content>
 </md-content>
