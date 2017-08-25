@@ -51,3 +51,38 @@ img.profile-picture{
     height: 50px;
     width: 50px;
 }
+img.owner-face{
+   height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.carebnb-menu-icon{
+    height: 2em;
+    width: 2em;
+    color: #FF5A5F;
+    cursor: pointer;
+}
+
+.carebnb-menu-icon svg{
+    transform: rotate(180deg);
+}
+
+.carebnb-menu-icon span{
+    font-family: "Arial";
+}
+
+.carebnb-menu-icon span:hover{
+}
+img.profile-picture{
+    height: 50px;
+    width: 50px;
+}
+
+body{
+    background-color: #FF5A5F;
+}
+
+.menu{
+    background-color: white;
+}
