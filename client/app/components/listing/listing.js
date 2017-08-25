@@ -6,7 +6,7 @@ angular.module('myApp.listing', [])
             templateUrl: 'components/listing/listing.html',
             scope:       {
                 listingData: '=',
-                approve: '='
+                approveListing: '='
             }
         }
     })
