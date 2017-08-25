@@ -18,9 +18,16 @@
             </md-input-container>
         </div>
 
+
+        <md-input-container class="md-block">
+            <label>Address</label>
+            <input ng-model="rscSubCtrl.address" md-maxlength="150" rows="3" max-rows="3"
+                      md-select-on-focus/>
+        </md-input-container>
+
         <md-input-container class="md-block">
             <label>Prefrences</label>
-            <textarea ng-model="rscSubCtrl.biography" md-maxlength="150" rows="3" max-rows="3"
+            <textarea ng-model="rscSubCtrl.preferences" md-maxlength="150" rows="3" max-rows="3"
                       md-select-on-focus></textarea>
         </md-input-container>
 
