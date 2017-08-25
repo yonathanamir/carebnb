@@ -1,11 +1,21 @@
-<div layout="row">
+<!--<div layout="row" layout-align="center">
     <md-input-container class="md-block">
         <label>Select by ID</label>
         <input ng-model="ownerAprvCtrl.selectedId">
     </md-input-container>
-</div>
-<div ng-repeat="owner in ownerAprvCtrl.owners | filter: { id: ownerAprvCtrl.selectedId}" layout="row">
-    <img class="profile-picture" ng-src="{{owner.profilePicture || ownerAprvCtrl.defaultPicture}}" />
-    <p>{{owner.contact.name}}</p>
-    <md-switch ng-model="owner.approved" ng-change="ownerAprvCtrl.approve(owner)"></md-switch>
+</div>-->
+<div layout="row" layout-align="center">
+    <md-card class="owner-card" ng-repeat="owner in ownerAprvCtrl.owners | filter: { id: ownerAprvCtrl.selectedId}">
+        <div class="card-img">
+            <img ng-src="{{ owner.profilePicture || ownerAprvCtrl.defaultPicture}}" class="md-card-image">
+          <md-switch ng-model="owner.approved" ng-change="ownerAprvCtrl.approve(owner)"></md-switch>
+        </div>
+        
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{ owner.contact.name }}</span>
+            <span class="md-subhead">{{ owner.contact.address }}</span>
+          </md-card-title-text>
+        </md-card-title>
+      </md-card>
 </div>

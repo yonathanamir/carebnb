@@ -10,6 +10,7 @@ angular.module('myApp', [
     'myApp.version',
     'naif.base64',
   'myApp.resource-submission',
+  'myApp.resource-approve',
   'myApp.owner-submission',
     'myApp.owner-approve',
   'myApp.version'
