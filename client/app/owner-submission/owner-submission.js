@@ -18,8 +18,8 @@ angular.module('myApp.owner-submission', ['ngRoute'])
         }
 
         this.submit = ()=> {
-            const pf = this.profilePicture ? `data:${this.profilePicture.filetype};base64,${this.profilePicture.base64}` : alert2('no profile picture');
-            const idp = this.idPicture ? `data:${this.idPicture.filetype};base64,${this.idPicture.base64}` : alert2('no id picture');
+            const pf = this.profilePicture ? `data:${this.profilePicture.filetype|| 'image/jpeg'};base64,${this.profilePicture.base64}` : alert2('no profile picture');
+            const idp = this.idPicture ? `data:${this.idPicture.filetype|| 'image/jpeg'};base64,${this.idPicture.base64}` : alert2('no id picture');
             service.addOwner({
                 contact: {
                     idPicture: idp,

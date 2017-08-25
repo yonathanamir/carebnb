@@ -17,7 +17,7 @@ angular.module('myApp.resource-submission', ['ngRoute'])
             const pics = [];
             if (this.pictures.length) {
                 this.pictures.forEach(pic => {
-                    pics.push(`data:${pic.filetype};base64,${pic.base64}`);
+                    pics.push(`data:${pic.filetype|| 'image/jpeg'};base64,${pic.base64}`);
                 });
             }
 
