@@ -11,7 +11,8 @@ angular.module('myApp.owner-submission', ['ngRoute'])
     }])
 
     .controller('ownerSubmissionCtrl', ['ownerSubmissionService', 'currentUser', '$location', function (service, currentUser, $location) {
-
+        this.step = 0;
+        
         function alert2(message) {
             alert(message);
             throw message
