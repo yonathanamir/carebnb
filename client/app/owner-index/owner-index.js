@@ -13,10 +13,20 @@ angular.module('myApp')
         this.user = currentUser.getUser();
 
         this.orders = [];
-        ordersService.getOrders(user.id)
+        ordersService.getOrders(this.user.id)
             .then(orders => {
                 resourceSubmissionService.getResources().then(resources => {
-
+                    orders.forEach(order => {
+                        order.resource = find(resources, order.resource);
+                    });
+                    this.orders = orders;
                 })
             })
     }]);
+
+function find(arr, id){
+    for (var i = 0; i < arr.length; i++) {
+        var obj = arr[i];
+        if(obj.id === id) return obj;
+    }
+}

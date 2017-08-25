@@ -15,8 +15,7 @@ let Resource = new graphql.GraphQLObjectType({
         owner: {
             type: Owner,
             resolve(parent, args, { dbs }){
-                return _.find(dbs.owners, o => o.id == parent.owner
-                );
+                return _.find(dbs.owners, o => o.id == parent.owner);
             }
         }
     }
