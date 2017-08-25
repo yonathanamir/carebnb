@@ -168,3 +168,26 @@ body{
 .wizard-step.ng-scope.layout-align-center-stretch > div > md-input-container > md-checkbox > div.md-container.md-ink-ripple > div.md-icon{
     background-color: black;
 }
+
+/* Rooms Select */
+.room-filters{
+    padding: 1em;
+}
+
+.room-filters .md-title{
+    padding-right: 1.5em;
+}
+
+.room-filters md-radio-group md-radio-button{
+    display: inline-flex;
+}
+
+.room-filters .filter{
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border-left: 1px solid #a8a8a8;
+}
+
+.room-filters .filter md-radio-button{
+    margin-left: 1em;
+}

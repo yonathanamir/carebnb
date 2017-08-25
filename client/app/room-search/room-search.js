@@ -11,7 +11,8 @@ angular.module('myApp.room-search', ['ngRoute', 'ngMaterial', 'myApp.listing'])
     }])
 
     .controller('roomSearchCtrl', ['roomSearchService', '$mdToast', function (roomSearchService, $mdToast) {
-
+        this.filterKosherView = 'false';
+        
         this.filter = ()=> {
 
             if(!this.startDate || !this.endDate) {
@@ -23,6 +24,17 @@ angular.module('myApp.room-search', ['ngRoute', 'ngMaterial', 'myApp.listing'])
                 this.rooms = data.data.resources;
             });
         };
+        
+        this.kosherFilter = function(){
+            if (this.filterKosherView != 'false'){
+                this.kosher = this.filterKosherView == 'yes';
+                this.filterKosher = true;
+            }
+            else
+                this.filterKosher = false;
+            
+            this.filter();
+        }
 
         this.approveListing = (id) => {
             roomSearchService.approveListing(id).then(() => {
