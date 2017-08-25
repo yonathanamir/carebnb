@@ -7,14 +7,6 @@
   padding: 0 0 0.5em;
 }
 
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
 .menu > li {
   display: inline;
 }
@@ -24,7 +16,98 @@
   padding-right: 0.3em;
 }
 
+img.owner-face{
+   height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.carebnb-menu-icon{
+    height: 2em;
+    width: 2em;
+    color: #FF5A5F;
+    cursor: pointer;
+}
+
+.carebnb-menu-icon svg{
+    transform: rotate(180deg);
+}
+
+.carebnb-menu-icon span{
+    font-family: "Arial";
+}
+
+.carebnb-menu-icon span:hover{
+}
 img.profile-picture{
     height: 50px;
     width: 50px;
 }
+img.owner-face{
+   height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.carebnb-menu-icon{
+    height: 2em;
+    width: 2em;
+    color: #FF5A5F;
+    cursor: pointer;
+}
+
+.carebnb-menu-icon svg{
+    transform: rotate(180deg);
+}
+
+.carebnb-menu-icon span{
+    font-family: "Arial";
+}
+
+.carebnb-menu-icon span:hover{
+}
+img.profile-picture{
+    height: 50px;
+    width: 50px;
+}
+
+html,
+body{
+    background-color: white;
+}
+
+.menu{
+    background-color: white;
+}
+
+.card-img{
+    width: 100%;
+    position: relative;
+}
+
+.card-img img{
+    width:inherit;
+    display: block;
+}
+
+.card-img md-switch{
+    margin: 0px;
+    position: absolute;
+    top: 3px;
+    right: 6px;
+}
+
+.owner-card{
+    width: 300px;
+    box-shadow: none;
+}
+
+.owner-card md-card-title{
+        padding: 0;
+    margin-top: 8px;
+}
+
+.owner-card md-card-title-text span{
+    padding: 0;
+}
+
