@@ -69,11 +69,12 @@ angular.module('myApp.owner-submission', ['ngRoute'])
                         },
                         password: this.password || alert2('no password')
                     })
+                        .then(newUser => {
+                            currentUser.switchUser(newUser);
+                            $location.path('/resource-submission')
+                        });
                 })
-                .then(newUser => {
-                    currentUser.switchUser(newUser);
-                    $location.path('/resource-submission')
-                });
+
 
 
         };
