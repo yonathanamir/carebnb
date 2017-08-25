@@ -35,6 +35,8 @@ angular.module('myApp.room-search')
             let query = {query: "{" +
                                     "resources (" + queryArguments + ") {" +
                                         "id " +
+                                        "pictures " +
+                                        "address " +
                                         "requirements {" +
                                             "kosher " +
                                             "genders " +

@@ -17,6 +17,9 @@ let Resource = new graphql.GraphQLObjectType({
             resolve(parent, args, { dbs }){
                 return _.find(dbs.owners, o => o.id == parent.owner);
             }
+        },
+        pictures: {
+            type: new graphql.GraphQLList(graphql.GraphQLString)
         }
     }
 });

@@ -1,66 +1,62 @@
-<md-content>
-    <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
-        <h1>Filtering:</h1>
-        <div md-theme="docs-dark" layout-gt-sm="row">
-            <div>
-                <md-input-container>
-                    <label>Start Date: </label>
-                    <md-datepicker ng-model="roomCtrl.startDate" ng-change="roomCtrl.filter()"></md-datepicker>
-                </md-input-container>
-                <md-input-container>
-                    <label>End Date: </label>
-                    <md-datepicker ng-model="roomCtrl.endDate" ng-change="roomCtrl.filter()"></md-datepicker>
-                </md-input-container>
-            </div>
-            <div>
-                <md-input-container>
-                    <md-checkbox ng-model="roomCtrl.filterKosher"
-                                 style="display: inline-block"
-                                 ng-change="roomCtrl.kosher=false;roomCtrl.filter()">
-                        Filter kosher?
-                    </md-checkbox>
-                    <span>
-                        Not Kosher
-                        <md-switch
-                                ng-model="roomCtrl.kosher"
-                                style="display: inline-block"
-                                ng-disabled="!(roomCtrl.filterKosher)"
-                                ng-change="roomCtrl.filter()">
-                            Kosher
-                        </md-switch>
-                    </span>
-                </md-input-container>
-            </div>
-            <div>
-                <md-input-container>
-                    <label>Gender</label>
-                    <md-select ng-model="roomCtrl.gender" md-on-close="roomCtrl.filter()">
-                        <md-option md-option-empty>None</md-option>
-                        <md-option ng-value="'Male'">Male</md-option>
-                        <md-option ng-value="'Female'">Female</md-option>
-                        <md-option ng-value="'Trans'">Trans</md-option>
-                        <md-option ng-value="'Other'">Other</md-option>
-                    </md-select>
-                </md-input-container>
-            </div>
-            <div>
-                <md-input-container>
-                    <label>Languages</label>
-                    <md-select ng-model="roomCtrl.languages" md-on-close="roomCtrl.filter()" multiple>
-                        <md-option ng-value="'Hebrew'">Hebrew</md-option>
-                        <md-option ng-value="'English'">English</md-option>
-                        <md-option ng-value="'Arabic'">Arabic</md-option>
-                        <md-option ng-value="'Russian'">Russian</md-option>
-                    </md-select>
-                </md-input-container>
-            </div>
+<div layout="row" class="room-filters" layout-align="left center">
+    <h3 class="md-title">Filters</h3>
+    
+    <md-input-container class="filter">
+        <label>Start Date: </label>
+        <md-datepicker ng-model="roomCtrl.startDate" ng-change="roomCtrl.filter()"></md-datepicker>
+    </md-input-container>
+    <md-input-container class="filter">
+        <label>End Date: </label>
+        <md-datepicker ng-model="roomCtrl.endDate" ng-change="roomCtrl.filter()"></md-datepicker>
+    </md-input-container>
+    
+    <md-radio-group class="filter" ng-model="roomCtrl.filterKosherView" ng-change="roomCtrl.kosherFilter()">
+        <label >Kosher Food:</label>
+        <md-radio-button value="false" class="md-primary">Don't Care</md-radio-button>
+        <md-radio-button value="yes">Kosher</md-radio-button>
+        <md-radio-button value="no">Goyfood</md-radio-button>
+    </md-radio-group>
+    
+    
+    <md-input-container class="filter">
+        <label>Gender</label>
+        <md-select ng-model="roomCtrl.gender" md-on-close="roomCtrl.filter()">
+            <md-option md-option-empty>None</md-option>
+            <md-option ng-value="'Male'">Male</md-option>
+            <md-option ng-value="'Female'">Female</md-option>
+            <md-option ng-value="'Trans'">Trans</md-option>
+            <md-option ng-value="'Other'">Other</md-option>
+        </md-select>
+    </md-input-container>
+    
+    <md-input-container class="filter">
+        <label>Languages</label>
+        <md-select ng-model="roomCtrl.languages" md-on-close="roomCtrl.filter()" multiple>
+            <md-option ng-value="'Hebrew'">Hebrew</md-option>
+            <md-option ng-value="'English'">English</md-option>
+            <md-option ng-value="'French'">French</md-option>
+            <md-option ng-value="'Sfat Habet'">Sfat Habet</md-option>
+        </md-select>
+    </md-input-container>
+</div>
+
+<div layout="row" layout-align="space-around" ng-if="roomCtrl.loading">
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+
+<md-content ng-if="!roomCtrl.loading" md-theme="docs-dark" layout="row" class="listing-results" layout-align="center">
+    <div class="listing" ng-repeat="listingData in roomCtrl.rooms" layout="column">
+        <div layout="row" layout-align="center center">
+            <img ng-src="{{listingData.pictures[0]}}"/>
         </div>
-    </md-content>
-    <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
-        <h1>Results:</h1>
-        <listing ng-repeat="room in roomCtrl.rooms"
-                 listing-data="room"
-                 approve-listing="roomCtrl.approveListing"
-                 book-listing="roomCtrl.bookListing"></listing>
-    </md-content>
+        <div layout="row" layout-align="center center">
+            <a class="md-title listing-owner" href="#!/owner-approve?id={{listingData.owner.id}}">{{listingData.owner.contact.name}}</a><span class="md-subhead listing-address">{{listingData.address}}</span>
+        </div>
+        <md-button class="md-raised md-primary" ng-click="roomCtrl.bookListing(listingData.id, listingData.owner.id)">order</md-button>
+    </div>
+    <!--<listing ng-repeat="room in roomCtrl.rooms"
+             listing-data="room"
+             approve-listing="roomCtrl.approveListing"
+             book-listing="roomCtrl.bookListing">
+    </listing>-->
 </md-content>

@@ -1,3 +1,18 @@
+<div layout="row">
+    <jk-carousel
+            data="listingData.pictures"
+            item-template-url="'components/carousel/item-template.html'"
+            max-width="800"
+            max-height="500">
+    </jk-carousel>
+</div>
+<div layout="row">
+    <h4>{{listingData.owner.name}}</h2>
+</div>
+<div layout="row">
+    <h5>{{listingData.address</h2>
+</div>
+
 <h2>Room by <a href="#!/owner-approve?id={{listingData.owner.id}}">{{listingData.owner.contact.name}}</a></h2>
 
 <img ng-if="listingData.pictures" src={{listingData.pictures[0]}} />
