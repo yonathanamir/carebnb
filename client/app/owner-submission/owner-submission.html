@@ -1,4 +1,4 @@
-<div class="owner-submit-wizard" ng-switch="ownerSubCtrl.step" layout="column" layout-align="center">
+<div class="wizard owner-submit-wizard" ng-switch="ownerSubCtrl.step" layout="column" layout-align="center">
     <div class="wizard-step" ng-switch-when="0" layout-align="center">
         <div layout="row" layout-align="center">
             <h1 class="md-display-4">Who are you?</h1>
@@ -62,7 +62,7 @@
     
     <div class="wizard-step" ng-switch-when="4" layout-align="center">
         <div layout="row" layout-align="center">
-            <h1 class="md-display-4">How will you login?</h1>
+            <h1 class="md-display-4">Keep it safe!</h1>
         </div>
         <div layout="row" layout-align="center">
             <md-input-container class="md-block" flex-xl>
@@ -73,7 +73,7 @@
     </div>
     
     <div layout="row" layout-align="center">
-        <md-button ng-disabled="!ownerSubCtrl.step>0" ng-click="ownerSubCtrl.step = ownerSubCtrl.step-1">Previous</md-button>
+        <md-button ng-hide="!ownerSubCtrl.step>0" ng-click="ownerSubCtrl.step = ownerSubCtrl.step-1">Previous</md-button>
         <md-button ng-hide="ownerSubCtrl.step>3" ng-click="ownerSubCtrl.step = ownerSubCtrl.step+1">Next</md-button>
         <md-button ng-hide="ownerSubCtrl.step<4" ng-click="ownerSubCtrl.submit()">Submit!</md-button>
     </div>
