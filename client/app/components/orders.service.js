@@ -3,8 +3,13 @@ angular.module('myApp')
         let url = 'http://localhost:10010/orders';
 
         return {
-            getOrders
+            getOrders,
+            addOrder
         };
+
+        function addOrder(order){
+            return $http.post(url, order).then(o => o.data);
+        }
 
         function getOrders(userId) {
             return $http.get(url).then(o => o.data).then(orders => {

@@ -10,7 +10,7 @@ angular.module('myApp.resource-submission')
         };
 
         function getResources() {
-            return $http.get(url, resource).then(o => o.data);
+            return $http.get(url).then(o => o.data);
         }
 
         function addResource(resource) {
