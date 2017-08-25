@@ -66,6 +66,25 @@ paths:
           schema:
             $ref: "#/definitions/Generic"
 
+  /owners/{ownerId}/approve/{isApproved}:
+    x-swagger-router-controller: owners
+    get:
+      operationId: approveOwner
+      parameters:
+        - name: ownerId
+          in: path
+          required: true
+          type: string
+        - name: isApproved
+          in: path
+          required: true
+          type: boolean
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
+
   /orders:
     x-swagger-router-controller: orders
     get:
@@ -78,7 +97,7 @@ paths:
     post:
       operationId: addOrder
       parameters:
-        - name: owner
+        - name: order
           in: body
           required: true
           schema:
@@ -89,20 +108,24 @@ paths:
           schema:
             $ref: "#/definitions/Generic"
 
-  /orders/{orderId}/owner-approve:
-      x-swagger-router-controller: orders
-      get:
-        operationId: ownerConfirmOrder
-        parameters:
-          - name: orderId
-            in: path
-            required: true
-            type: integer
-        responses:
-          default:
-            description: Error
-            schema:
-              $ref: "#/definitions/Generic"
+  /orders/{orderId}/owner-approve/{isApproved}:
+    x-swagger-router-controller: orders
+    get:
+      operationId: ownerConfirmOrder
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          type: string
+        - name: isApproved
+          in: path
+          required: true
+          type: boolean
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
 
   /approvals:
     x-swagger-router-controller: approvals
@@ -136,11 +159,9 @@ definitions:
       resource:
         type: string
       startDate:
-        type: string
-        format: date-time
+        type: number
       endDate:
-        type: string
-        format: date-time
+        type: number
       id:
         type: string
       contractor:
@@ -169,13 +190,19 @@ definitions:
     properties:
       id:
         type: string
+      profilePicture:
+        type: string
       contact:
         properties:
+          idPicture:
+            type: string
+          id:
+            type: string
           name:
             type: string
           phone:
             type: string
-          mail:
+          email:
             type: string
           city:
             type: string
@@ -183,18 +210,18 @@ definitions:
             type: string
       howToContact:
         properties:
-          whatsup:
+          whatsapp:
             type: boolean
           sms:
             type: boolean
           call:
             type: boolean
-          mail:
+          email:
             type: boolean
-      username:
-        type: string
       password:
         type: string
+      approved:
+        type: boolean
 
   Resource:
     properties:
@@ -204,12 +231,20 @@ definitions:
         properties:
           kosher:
             type: boolean
-          gender:
-            type: string
+          genders:
+            type: array
+            items:
+              type: string
           languages:
-            type: string
+            type: array
+            items:
+              type: string
           preferences:
             type: string
+      pictures:
+        type: array
+        items:
+          type: string
       id:
         type: string
       address:

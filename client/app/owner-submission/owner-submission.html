@@ -1,56 +1,71 @@
-<md-content>  
+<md-content>
     <form name="ownerForm">
-      <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-        <div layout="row">
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>ID</label>
-            <input name="id" ng-model="ownerSubCtrl.id" placeholder="XXXXXXXXX"
-                   required ng-pattern="/^[0-9]{9}$/" md-maxlength="9" />
-          </md-input-container>
-                      <md-input-container class="md-block" flex-gt-sm>
-            <label>Name</label>
-            <input required ng-model="ownerSubCtrl.name">
-          </md-input-container>
-        </div>
-          <div layout="row">
-          <div layout="column" flex="50">
-          <div layout="row">
+        <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+            <div layout="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>ID</label>
+                    <input name="id" ng-model="ownerSubCtrl.id" placeholder="XXXXXXXXX"
+                           required ng-pattern="/^[0-9]{9}$/" md-maxlength="9"/>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Name</label>
+                    <input required ng-model="ownerSubCtrl.name">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>City</label>
+                    <input required ng-model="ownerSubCtrl.city" type="text">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Password</label>
+                    <input required ng-model="ownerSubCtrl.password" type="password">
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <div layout="column" flex="50">
+                    <div layout="row">
 
-          
-                  <md-input-container class="md-block">
-          <label>Address</label>
-          <input ng-model="ownerSubCtrl.address">
-        </md-input-container>
-          </div>
-          <div layout="row">
-              <md-input-container class="md-block" flex-gt-sm>
-            <label>Email</label>
-            <input name="email" ng-model="ownerSubCtrl.email" placeholder="your@email.com"
-                   required ng-pattern="/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/" />
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-          <label>Phone Number</label>
-          <input name="phone" ng-model="ownerSubCtrl.phone" ng-pattern="/^[0-9]{3}-[0-9]{7}$/" />
-        </md-input-container>
-          </div>
-              </div>
-          <div layout="column" flex="50">
-                <md-switch ng-model="ownerSubCtrl.contact.whatsapp" aria-label="Whatsapp">
-    Whatsapp
-  </md-switch>
-                <md-switch ng-model="ownerSubCtrl.contact.phone" aria-label="Phone">
-    Phone Call
-  </md-switch>
-                <md-switch ng-model="ownerSubCtrl.contact.email" aria-label="Email">
-    Email
-  </md-switch>
-                <md-switch ng-model="ownerSubCtrl.contact.sms" aria-label="SMS">
-    SMS
-  </md-switch>
-          </div>
-              </div>
-      </md-content>
-        
-      <md-button class="md-raised md-primary">Submit</md-button>
+
+                        <md-input-container class="md-block">
+                            <label>Address</label>
+                            <input ng-model="ownerSubCtrl.address">
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Email</label>
+                            <input name="email" ng-model="ownerSubCtrl.email" placeholder="your@email.com"
+                                   required
+                                   ng-pattern="/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/"/>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Phone Number</label>
+                            <input name="phone" ng-model="ownerSubCtrl.phone" ng-pattern="/^[0-9]{3}-[0-9]{7}$/"/>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div layout="column" flex="50">
+                    <md-switch ng-model="ownerSubCtrl.contact.whatsapp" aria-label="Whatsapp">
+                        Whatsapp
+                    </md-switch>
+                    <md-switch ng-model="ownerSubCtrl.contact.phone" aria-label="Phone">
+                        Phone Call
+                    </md-switch>
+                    <md-switch ng-model="ownerSubCtrl.contact.email" aria-label="Email">
+                        Email
+                    </md-switch>
+                    <md-switch ng-model="ownerSubCtrl.contact.sms" aria-label="SMS">
+                        SMS
+                    </md-switch>
+                </div>
+            </div>
+        </md-content>
+
+        <label>Profile Picture</label>
+        <input type="file" ng-model="ownerSubCtrl.profilePicture" base-sixty-four-input/>
+
+        <label>Id Picture</label>
+        <input type="file" ng-model="ownerSubCtrl.idPicture" base-sixty-four-input/>
+
+        <md-button ng-click="ownerSubCtrl.submit()" class="md-raised md-primary">Submit</md-button>
     </form>
 </md-content>

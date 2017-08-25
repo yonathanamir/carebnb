@@ -1,0 +1,18 @@
+<md-content>
+    <div layout="row">
+        <jk-carousel
+                data="rscAprvCtrl.dataArray"
+                item-template-url="'components/carousel/item-template.html'"
+                max-width="800"
+                max-height="500">
+        </jk-carousel>
+    </div>
+    <div layout="row">
+        <div layout="column">
+            <img class="owner-face" src="{{rscAprvCtrl.owner.img}}" />
+        </div>
+        <div layout="column">
+            <p>{{rscAprvCtrl.owner.name}}</p>
+        </div>
+    </div>
+</md-content>

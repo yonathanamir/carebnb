@@ -1,11 +1,5 @@
 <md-content>
     <form >
-        <jk-carousel
-                data="rscSubCtrl.dataArray"
-                item-template-url="'components/carousel/item-template.html'"
-                max-width="800"
-                max-height="500">
-        </jk-carousel>
         <div layout="row">
             <md-input-container flex=50>
                 <label>Prefered Genders</label>
@@ -29,6 +23,9 @@
             <textarea ng-model="rscSubCtrl.biography" md-maxlength="150" rows="3" max-rows="3"
                       md-select-on-focus></textarea>
         </md-input-container>
+
+        <label>Room Pictures</label>
+        <input type="file" ng-model="rscSubCtrl.pictures" multiple base-sixty-four-input/>
 
         <md-button ng-click="rscSubCtrl.submit()" type="submit" class="md-raised md-primary">Submit</md-button>
     </form>

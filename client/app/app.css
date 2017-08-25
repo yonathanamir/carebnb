@@ -47,3 +47,7 @@ img.owner-face{
 
 .carebnb-menu-icon span:hover{
 }
+img.profile-picture{
+    height: 50px;
+    width: 50px;
+}
