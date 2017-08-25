@@ -113,3 +113,11 @@ body{
     padding: 0;
 }
 
+.wizard-step{
+    height: 21em;
+}
+
+.md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab{
+    color: rgba(255,255,255,0.87);
+    background-color: #FF5A5F;
+}

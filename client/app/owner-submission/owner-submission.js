@@ -11,7 +11,8 @@ angular.module('myApp.owner-submission', ['ngRoute'])
     }])
 
     .controller('ownerSubmissionCtrl', ['ownerSubmissionService', 'currentUser', '$location', function (service, currentUser, $location) {
-
+        this.step = 0;
+        
         function alert2(message) {
             alert(message);
             throw message
@@ -19,10 +20,8 @@ angular.module('myApp.owner-submission', ['ngRoute'])
 
         this.submit = ()=> {
             const pf = this.profilePicture ? `data:${this.profilePicture.filetype|| 'image/jpeg'};base64,${this.profilePicture.base64}` : alert2('no profile picture');
-            const idp = this.idPicture ? `data:${this.idPicture.filetype|| 'image/jpeg'};base64,${this.idPicture.base64}` : alert2('no id picture');
             service.addOwner({
                 contact: {
-                    idPicture: idp,
                     id: this.id || alert2('no ID'),
                     name: this.name || alert2('no Name'),
                     phone: this.phone || alert2('no phone'),
