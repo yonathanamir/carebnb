@@ -1,5 +1,6 @@
 module.exports = {
     addOwner,
+    approveOwner,
     getOwners
 };
 
