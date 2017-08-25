@@ -68,10 +68,19 @@
         </div>
     </div>
     
+    <div class="wizard-step" ng-switch-when="5" layout-align="center">
+        <div layout="row" layout-align="center">
+            <h1 class="md-display-4">We're on it!</h1>
+        </div>
+        <div layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+    </div>
+    
     <div layout="row" layout-align="center">
         <md-button ng-hide="!rscSubCtrl.step>0" ng-click="rscSubCtrl.step = rscSubCtrl.step-1">Previous</md-button>
         <md-button ng-hide="rscSubCtrl.step>3" ng-click="rscSubCtrl.step = rscSubCtrl.step+1">Next</md-button>
-        <md-button ng-hide="rscSubCtrl.step<4" ng-click="rscSubCtrl.submit()">Submit!</md-button>
+        <md-button ng-hide="rscSubCtrl.step!=4" ng-click="rscSubCtrl.submit()">Submit!</md-button>
     </div>
 </div>
 

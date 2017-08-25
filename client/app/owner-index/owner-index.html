@@ -1,22 +1,8 @@
-{{oic.orders}}
-<md-content>
-    <h1 ng-if="oic.user || true">Sorry, you must Login/<a href="#!/owner-submission">Sign up</a> first</h1>
-</md-content>
-<div layout="row" layout-align="center" ng-if="oic.user">
-    <h1>My orders</h1>
-
-        <md-card class="owner-card" ng-repeat="order in oic.orders">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">At {{ order.resource.address }}</span>
-                    <img ng-src="{{order.resource.pictures[0]}}" alt=""/>
-                    <span class="md-subhead">Between {{ order.startDate | date}} and {{order.endDate | date}}</span>
-                    <md-button ng-click="oic.approve(order.id)">
-                        Approve
-                    </md-button>
-                </md-card-title-text>
-            </md-card-title>
-        </md-card>
-    </md-content>
-
+<div class="wizard-step" layout-align="center">
+    <div layout="row" layout-align="center">
+        <h1 class="md-display-4">Make the world better</h1>
+    </div>
+    <div layout="row" layout-align="center center">
+    <a class="md-button md-primary" href="#!/owner-submission">Get Started</a>
+    </div>
 </div>

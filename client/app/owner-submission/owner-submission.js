@@ -47,6 +47,7 @@ angular.module('myApp.owner-submission', ['ngRoute'])
         }
 
         this.submit = ()=> {
+            this.step = 5;
             getBase64(this.profilePicture[0].lfDataUrl)
                 .then(base64 => {
                     const pf = this.profilePicture ? `data:${this.profilePicture[0].lfFileType || 'image/jpeg'};base64,${base64}` : alert2('no profile picture');
