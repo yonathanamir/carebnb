@@ -26,7 +26,7 @@ angular.module('myApp.resource-submission', ['ngRoute'])
                 address: this.address,
                 pictures: pics,
                 requirements: {
-                    kosher: true,
+                    kosher: this.kosher,
                     genders: this.genderSelected,
                     languages: this.languageSelected,
                     preferences: this.preferences
