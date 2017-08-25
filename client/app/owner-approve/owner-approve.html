@@ -5,7 +5,7 @@
     </md-input-container>
 </div>
 <div ng-repeat="owner in ownerAprvCtrl.owners | filter: { id: ownerAprvCtrl.selectedId}" layout="row">
-    <img class="profile-picture" src="{{owner.profilePicture || ownerAprvCtrl.defaultPicture}}" />
+    <img class="profile-picture" ng-src="{{owner.profilePicture || ownerAprvCtrl.defaultPicture}}" />
     <p>{{owner.contact.name}}</p>
     <md-switch ng-model="owner.approved" ng-change="ownerAprvCtrl.approve(owner)"></md-switch>
 </div>
