@@ -12,7 +12,7 @@ angular.module('myApp.room-search', ['ngRoute', 'myApp.listing'])
 
     .controller('roomSearchCtrl', ['roomSearchService', function (roomSearchService) {
 
-        this.filter = function() {
+        this.filter = ()=> {
 
             if(!this.startDate || !this.endDate) {
                 return;
@@ -23,5 +23,23 @@ angular.module('myApp.room-search', ['ngRoute', 'myApp.listing'])
                 this.rooms = data.data.resources;
             });
         };
+
+        const init =  ()=> {
+
+            const start = new Date();
+            start.setHours(0, 0, 0, 0);
+            start.setDate(start.getDate() - 1);
+            this.startDate = start;
+
+            const end = new Date();
+            end.setHours(0, 0, 0, 0);
+            end.setDate(end.getDate() + 7);
+            this.endDate = end;
+
+            this.filter();
+
+        };
+
+        init();
 
     }]);
