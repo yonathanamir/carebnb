@@ -42,10 +42,10 @@
 
 <md-content>
     <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
-        <h1>Results:</h1>
         <listing ng-repeat="room in roomCtrl.rooms"
                  listing-data="room"
                  approve-listing="roomCtrl.approveListing"
-                 book-listing="roomCtrl.bookListing"></listing>
+                 book-listing="roomCtrl.bookListing">
+        </listing>
     </md-content>
 </md-content>
