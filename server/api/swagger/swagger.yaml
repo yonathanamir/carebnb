@@ -66,6 +66,25 @@ paths:
           schema:
             $ref: "#/definitions/Generic"
 
+  /owners/{ownerId}/approve/{isApproved}:
+    x-swagger-router-controller: owners
+    get:
+      operationId: approveOwner
+      parameters:
+        - name: ownerId
+          in: path
+          required: true
+          type: string
+        - name: isApproved
+          in: path
+          required: true
+          type: boolean
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
+
   /orders:
     x-swagger-router-controller: orders
     get:
@@ -89,20 +108,24 @@ paths:
           schema:
             $ref: "#/definitions/Generic"
 
-  /orders/{orderId}/owner-approve:
-      x-swagger-router-controller: orders
-      get:
-        operationId: ownerConfirmOrder
-        parameters:
-          - name: orderId
-            in: path
-            required: true
-            type: integer
-        responses:
-          default:
-            description: Error
-            schema:
-              $ref: "#/definitions/Generic"
+  /orders/{orderId}/owner-approve/{isApproved}:
+    x-swagger-router-controller: orders
+    get:
+      operationId: ownerConfirmOrder
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          type: string
+        - name: isApproved
+          in: path
+          required: true
+          type: boolean
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
 
   /approvals:
     x-swagger-router-controller: approvals
