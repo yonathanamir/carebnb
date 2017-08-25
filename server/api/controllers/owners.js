@@ -10,7 +10,6 @@ const _ = require('lodash');
 
 function addOwner(req, res, next) {
     let owner = req.swagger.params.owner.value;
-    console.dir(owner);
     owner.id = uuid();
 
     db.getDb().then(doc => {

@@ -1,6 +1,7 @@
 module.exports = {
     addResource,
-    getResources
+    getResources,
+    approveResource
 };
 
 const _ = require('lodash');
@@ -28,4 +29,21 @@ function getResources(req, res){
         let resources = doc.resources;
         res.json(resources)
     });
+}
+
+function approveResource(req, res){
+    let id = req.swagger.params.resourceId.value;
+    let isApproved = req.swagger.params.isApproved.value;
+
+    db.getDb().then(doc => {
+        let resources = doc.resources;
+
+        let resource = _.find(resources, {id});
+        resource.approved = isApproved;
+
+        return db.setDb(doc)
+            .then(s => {
+                res.json(resource);
+            });
+    })
 }
