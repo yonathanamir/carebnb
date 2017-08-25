@@ -24,6 +24,12 @@ angular.module('myApp.room-search', ['ngRoute', 'myApp.listing'])
             });
         };
 
+        this.approve = (id) => {
+            roomSearchService.approveListing(id).then(() => {
+                this.filter();
+            });
+        };
+
         const init =  ()=> {
 
             const start = new Date();
