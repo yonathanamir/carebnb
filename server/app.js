@@ -20,11 +20,6 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
         throw err;
     }
     app.use(cors());
-    app.use(bodyParser.urlencoded({
-        parameterLimit: 100000,
-        limit: '10mb',
-        extended: true
-    }));
 
     app.use('/', function (req, res, next) {
         dbs.getDb().then(db => {
@@ -41,6 +36,11 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
     // install middleware
     swaggerExpress.register(app);
 
+    app.use(bodyParser.urlencoded({
+        parameterLimit: 100000,
+        limit: '10mb',
+        extended: true
+    }));
     var port = process.env.PORT || 10010;
     app.listen(port);
 
