@@ -8,4 +8,5 @@
 </ul>
 
 <h3>Is Room Approved? {{listingData.approved | approved}}</h3>
+<md-button ng-if="!(listingData.approved)" ng-click="approve(listingData.id)">Approve this listing</md-button>
 <h3 ng-if="listingData.address">Room's Address: {{listingData.address}}</h3>
