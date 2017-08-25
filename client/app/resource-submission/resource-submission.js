@@ -38,12 +38,13 @@ angular.module('myApp.resource-submission', ['ngRoute'])
         });
     }])
 
-    .controller('resourceSubmissionCtrl', ['resourceSubmissionService', 'currentUser', '$q', '$location', function (service, currentUser, $q, $location) {
+    .controller('resourceSubmissionCtrl', ['resourceSubmissionService', 'currentUser', '$q','$mdToast',  '$location', function (service, currentUser, $q, $location, $mdToast) {
         this.step = 0;
 
         this.user = currentUser.getUser();
         this.address = this.user.contact.address;
         this.submit = () => {
+            this.step = 5;
             this.extractPictures(this.pictures)
                 .then(b64s=> {
                     const pics = [];
@@ -64,7 +65,8 @@ angular.module('myApp.resource-submission', ['ngRoute'])
                         }
                     })
                 })
-            .then(()=>{
+            .then(()=>{                
+                    alert('Thanks for your help!');
                     $location.path('/');
                 });
         };
