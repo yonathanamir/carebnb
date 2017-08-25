@@ -100,9 +100,16 @@ body{
     right: 6px;
 }
 
+.ng-scope.layout-align-center-stretch.layout-row{
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+
 .owner-card{
     width: 300px;
     box-shadow: none;
+    height: 400px;
 }
 
 .owner-card md-card-title{
