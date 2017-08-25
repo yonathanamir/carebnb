@@ -7,6 +7,7 @@
   margin-bottom: 2em;
   padding: 0 0 0.5em;
     padding-top: 0.5em;
+    margin-bottom: 0;
 }
 
 .menu > li {
@@ -115,9 +116,43 @@ body{
 
 .wizard-step{
     height: 21em;
+    background-color: #FF5A5F;
+}
+
+.wizard{
+    background-color: #FF5A5F;
+        padding-bottom: 3em;
+}
+
+.md-input-container.wizard-input input{
+    color: white;
+}
+
+.wizard-step div h1{
+    color: white;
+}
+
+.wizard button,
+.wizard input,
+.wizard label{
+    color: white;
+    border-color: white;
 }
 
 .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab{
-    color: rgba(255,255,255,0.87);
-    background-color: #FF5A5F;
+    background-color: #ff9c9f;
+    color: white;
+}
+
+.md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab{
+    background-color: #ff9c9f;
+    color: white;
+}
+
+.md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover{
+    background-color: #ff787c;
+}
+
+.wizard-step.ng-scope.layout-align-center-stretch > div:nth-child(2) > md-input-container:nth-child(1){
+    padding-right: 1.5em;
 }
