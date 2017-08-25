@@ -11,7 +11,7 @@ let query = new graphql.GraphQLObjectType({
             args: {
                 ids: { type: graphql.GraphQLString},
                 kosher: { type: graphql.GraphQLBoolean },
-                language: { type: graphql.GraphQLString },
+                languages: { type: graphql.GraphQLString },
                 gender: { type: graphql.GraphQLString },
                 startDate: { type: graphql.GraphQLInt },
                 endDate: { type: graphql.GraphQLInt }
@@ -28,9 +28,10 @@ let query = new graphql.GraphQLObjectType({
                     resources = _.filter(resources, o => o.requirements.kosher == args.kosher);
                 }
 
-                if (args.language !== undefined){
+                if (args.languages !== undefined){
+                    let languages = args.languages.split(',');
                     resources = _.filter(resources,
-                            o => _.includes(o.requirements.languages,  args.language));
+                            r => _.intersection(r.requirements.languages,  languages).length > 0);
                 }
 
                 if (args.gender !== undefined){
