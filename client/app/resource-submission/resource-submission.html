@@ -1,6 +1,22 @@
-<md-content>
-    <form >
-        <div layout="row">
+<div class="wizard owner-submit-wizard" ng-switch="rscSubCtrl.step" layout="column" layout-align="center">
+    <div class="wizard-step" ng-switch-when="0" layout-align="center">
+        <div layout="row" layout-align="center">
+            <h1 class="md-display-4">Where are we staying?</h1>
+        </div>
+        <div layout="row" layout-align="center">
+            <md-input-container class="md-block">
+                <label>Address</label>
+                <input ng-model="rscSubCtrl.address"
+                          md-select-on-focus/>
+            </md-input-container>
+        </div>
+    </div>
+    
+    <div class="wizard-step" ng-switch-when="1" layout-align="center">
+        <div layout="row" layout-align="center">
+            <h1 class="md-display-4">Who can come?</h1>
+        </div>
+        <div layout="row" layout-align="center">
             <md-input-container flex=50>
                 <label>Prefered Genders</label>
                 <md-select multiple ng-model="rscSubCtrl.genderSelected" placeholder="Select Gender">
@@ -8,8 +24,13 @@
                 </md-select>
             </md-input-container>
         </div>
-
-        <div layout="row">
+    </div>
+    
+    <div class="wizard-step" ng-switch-when="2" layout-align="center">
+        <div layout="row" layout-align="center">
+            <h1 class="md-display-4">How will we talk?</h1>
+        </div>
+        <div layout="row" layout-align="center">
             <md-input-container flex=50>
                 <label>Languages</label>
                 <md-select multiple ng-model="rscSubCtrl.languageSelected" placeholder="Select Languages">
@@ -17,26 +38,46 @@
                 </md-select>
             </md-input-container>
         </div>
+    </div>
+    
+    <div class="wizard-step" ng-switch-when="3" layout-align="center">
+        <div layout="row" layout-align="center">
+            <h1 class="md-display-4" >Show us your room!</h1>
+        </div>
+        <div layout="row" layout-align="center">
+                <lf-ng-md-file-input lf-files='rscSubCtrl.pictures' multiple> </lf-ng-md-file-input>
+        </div>
 
-        <md-switch ng-model="rscSubCtrl.kosher" aria-label="Kosher">
-            Kosher
-        </md-switch>
+    </div>
+    
+    <div class="wizard-step" ng-switch-when="4" layout-align="center">
+        <div layout="row" layout-align="center">
+            <h1 class="md-display-4">Anything Else?</h1>
+        </div>
+        <div layout="row" layout-align="center">
+            <md-input-container class="md-block">
+                <label>General Prefrences</label>
+                <textarea ng-model="rscSubCtrl.preferences" md-maxlength="150" rows="1" max-rows="2"
+                          md-select-on-focus></textarea>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <md-checkbox ng-model="rscSubCtrl.kosher" required>
+                  Eating Kosher?
+                </md-checkbox>
+          </md-input-container>
+        </div>
+    </div>
+    
+    <div layout="row" layout-align="center">
+        <md-button ng-hide="!rscSubCtrl.step>0" ng-click="rscSubCtrl.step = rscSubCtrl.step-1">Previous</md-button>
+        <md-button ng-hide="rscSubCtrl.step>3" ng-click="rscSubCtrl.step = rscSubCtrl.step+1">Next</md-button>
+        <md-button ng-hide="rscSubCtrl.step<4" ng-click="rscSubCtrl.submit()">Submit!</md-button>
+    </div>
+</div>
 
-        <md-input-container class="md-block">
-            <label>Address</label>
-            <input ng-model="rscSubCtrl.address" md-maxlength="150" rows="3" max-rows="3"
-                      md-select-on-focus/>
-        </md-input-container>
-
-        <md-input-container class="md-block">
-            <label>Prefrences</label>
-            <textarea ng-model="rscSubCtrl.preferences" md-maxlength="150" rows="3" max-rows="3"
-                      md-select-on-focus></textarea>
-        </md-input-container>
-
-        <label>Room Pictures</label>
-        <input type="file" ng-model="rscSubCtrl.pictures" multiple base-sixty-four-input/>
+<!--<md-content>
+    <form >
 
         <md-button ng-click="rscSubCtrl.submit()" type="submit" class="md-raised md-primary">Submit</md-button>
     </form>
-</md-content>
+</md-content>-->
