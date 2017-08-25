@@ -18,6 +18,7 @@ let query = new graphql.GraphQLObjectType({
             },
             resolve(parent, args, { dbs }){
                 let resources = dbs.resources;
+                console.log(args);
 
                 if (args.ids !== undefined){
                     let ids = args.ids.split(',');
@@ -57,6 +58,7 @@ let query = new graphql.GraphQLObjectType({
                     );
                 }
 
+                console.log(resources);
                 return resources;
             }
         },

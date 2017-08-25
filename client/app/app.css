@@ -198,3 +198,21 @@ body{
 .room-filters .filter md-radio-button{
     margin-left: 1em;
 }
+
+.listing{
+    width: 10em;
+    margin: 0 3em;
+}
+
+.listing .listing-owner{
+ 
+}
+
+.listing .listing-address{
+    padding-left: 1em;
+}
+
+.listing-results{
+    overflow-x: scroll;
+    overflow-y: hidden;
+}

@@ -40,12 +40,23 @@
     </md-input-container>
 </div>
 
-<md-content>
-    <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
-        <listing ng-repeat="room in roomCtrl.rooms"
-                 listing-data="room"
-                 approve-listing="roomCtrl.approveListing"
-                 book-listing="roomCtrl.bookListing">
-        </listing>
-    </md-content>
+<div layout="row" layout-align="space-around" ng-if="roomCtrl.loading">
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+
+<md-content ng-if="!roomCtrl.loading" md-theme="docs-dark" layout="row" class="listing-results" layout-align="center">
+    <div class="listing" ng-repeat="listingData in roomCtrl.rooms" layout="column">
+        <div layout="row" layout-align="center center">
+            <img ng-src="{{listingData.pictures[0]}}"/>
+        </div>
+        <div layout="row" layout-align="center center">
+            <a class="md-title listing-owner" href="#!/owner-approve?id={{listingData.owner.id}}">{{listingData.owner.contact.name}}</a><span class="md-subhead listing-address">{{listingData.address}}</span>
+        </div>
+        <md-button class="md-raised md-primary" ng-click="roomCtrl.bookListing(listingData.id, listingData.owner.id)">order</md-button>
+    </div>
+    <!--<listing ng-repeat="room in roomCtrl.rooms"
+             listing-data="room"
+             approve-listing="roomCtrl.approveListing"
+             book-listing="roomCtrl.bookListing">
+    </listing>-->
 </md-content>
