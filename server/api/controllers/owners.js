@@ -3,6 +3,7 @@ module.exports = {
     getOwners
 };
 
+const uuid = require('uuid/v4');
 const db = require('./dbs');
 const _ = require('lodash');
 
@@ -10,7 +11,7 @@ function addOwner(req, res, next) {
     db.getDb().then(doc => {
         let owners = doc.owners;
         let owner = req.swagger.params.owner.value;
-        owner.id = owners.length.toString();
+        owner.id = uuid();
         owners.push(owner);
 
         return db.setDb(doc)

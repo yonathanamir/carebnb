@@ -3,6 +3,8 @@ module.exports = {
     getResources
 };
 
+const _ = require('lodash');
+const uuid = require('uuid/v4');
 const db = require('./dbs');
 
 function addResource(req, res, next){
@@ -10,7 +12,7 @@ function addResource(req, res, next){
         let resources = doc.resources;
 
         let resource = req.swagger.params.resource.value;
-        resource.id = resources.length.toString();
+        resource.id = uuid();
         resource.approved = false;
         resources.push(resource);
 
