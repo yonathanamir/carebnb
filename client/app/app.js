@@ -8,7 +8,7 @@ angular.module('myApp', [
     'myApp.resource-submission',
     'myApp.owner-submission',
     'myApp.version',
-    'naif.base64'
+    'naif.base64',
   'myApp.resource-submission',
   'myApp.owner-submission',
     'myApp.owner-approve',
