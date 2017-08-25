@@ -9,12 +9,12 @@ const db = require('./dbs');
 const _ = require('lodash');
 
 function addOwner(req, res, next) {
-    db.getDb().then(doc => {
-        let owners = doc.owners;
-        let owner = req.swagger.params.owner.value;
-        owner.id = uuid();
-        owners.push(owner);
+    let owner = req.swagger.params.owner.value;
+    console.dir(owner);
+    owner.id = uuid();
 
+    db.getDb().then(doc => {
+        doc.owners.push(owner);
         return db.setDb(doc)
             .then(s => {
                 res.json(owner);
@@ -22,7 +22,7 @@ function addOwner(req, res, next) {
     });
 }
 
-function approveOwner(req, res){
+function approveOwner(req, res) {
     let id = req.swagger.params.ownerId.value;
     let isApproved = req.swagger.params.isApproved.value;
 
