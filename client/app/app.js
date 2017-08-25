@@ -6,8 +6,8 @@ angular.module('myApp', [
     'ngMaterial',
     'jkAngularCarousel',
     'lfNgMdFileInput',
-  'myApp.resource-submission',
-  'myApp.owner-submission',
+    'myApp.resource-submission',
+    'myApp.owner-submission',
     'myApp.room-search',
     'myApp.version',
     'naif.base64',
@@ -20,5 +20,5 @@ angular.module('myApp', [
     config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
 
-        $routeProvider.otherwise({redirectTo: '/resource-submission'});
+        $routeProvider.otherwise({redirectTo: '/owner-index'});
     }]);

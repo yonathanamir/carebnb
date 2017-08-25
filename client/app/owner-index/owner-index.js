@@ -11,6 +11,7 @@ angular.module('myApp')
 
     .controller('ownerIndexCtrl', ['ordersService', 'currentUser', 'resourceSubmissionService', function (ordersService, currentUser, resourceSubmissionService) {
         this.user = currentUser.getUser();
+        if(!this.user) return;
 
         this.orders = [];
         ordersService.getOrders(this.user.id)
