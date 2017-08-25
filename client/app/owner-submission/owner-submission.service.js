@@ -10,7 +10,7 @@ angular.module('myApp.owner-submission')
         };
 
         function getOwners() {
-            return $http.get(url, resource).then(o => o.data);
+            return $http.get(url).then(o => o.data);
         }
 
         function addOwner(owner) {

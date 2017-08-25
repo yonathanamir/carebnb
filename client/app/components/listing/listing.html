@@ -1,0 +1,11 @@
+<h2>Room by {{listingData.owner.contact.name}}</h2>
+
+<img ng-if="listingData.pictures" src={{listingData.pictures[0]}} />
+
+<h3>Room requirements:</h3>
+<ul>
+    <li ng-repeat="(label, value) in listingData.requirements">{{label}}: {{value | requirements}}</li>
+</ul>
+
+<h3>Is Room Approved? {{listingData.approved | approved}}</h3>
+<h3 ng-if="listingData.address">Room's Address: {{listingData.address}}</h3>

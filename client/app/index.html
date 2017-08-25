@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,11 +32,13 @@
     <li><a href="#!/resource-submission">resource submission</a></li>
     <li><a href="#!/owner-submission">owner submission</a></li>
     <li><a href="#!/owner-approve">owner approve</a></li>
-  </ul>
+</ul>
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
 <div ng-view></div>
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -49,17 +55,19 @@
 <script src="app.js"></script>
 <script src="bower_components/angular-base64-upload/dist/angular-base64-upload.js"></script>
 <script src="resource-submission/resource-submission.js"></script>
-    <script src="resource-approve/resource-approve.js"></script>
+  <script src="resource-approve/resource-approve.js"></script>
 <script src="resource-submission/resource-submission.service.js"></script>
 <script src="components/current-owner.js"></script>
 <script src="owner-index/owner-index.html"></script>
-<script src="owner-submission/owner-submission.js"></script>
+  <script src="owner-submission/owner-submission.js"></script>
+  <script src="owner-submission/owner-submission.service.js"></script>
 <script src="owner-approve/owner-approve.js"></script>
-<script src="owner-submission/owner-submission.service.js"></script>
-    <script src="owner-approve/owner-approve.service.js"></script>
-<script src="view2/view2.js"></script>
-<script src="components/version/version.js"></script>
-<script src="components/version/version-directive.js"></script>
-<script src="components/version/interpolate-filter.js"></script>
+<script src="owner-approve/owner-approve.service.js"></script>
+  <script src="room-search/room-search.js"></script>
+  <script src="room-search/room-search.service.js"></script>
+  <script src="components/listing/listing.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
 </body>
 </html>
