@@ -5,6 +5,7 @@ angular.module('myApp', [
     'ngRoute',
     'ngMaterial',
     'jkAngularCarousel',
+    'lfNgMdFileInput',
   'myApp.resource-submission',
   'myApp.owner-submission',
     'myApp.room-search',
