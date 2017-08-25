@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.room-search', ['ngRoute', 'myApp.listing'])
+angular.module('myApp.room-search', ['ngRoute', 'ngMaterial', 'myApp.listing'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/room-search', {
@@ -10,7 +10,7 @@ angular.module('myApp.room-search', ['ngRoute', 'myApp.listing'])
         });
     }])
 
-    .controller('roomSearchCtrl', ['roomSearchService', function (roomSearchService) {
+    .controller('roomSearchCtrl', ['roomSearchService', '$mdToast', function (roomSearchService, $mdToast) {
 
         this.filter = ()=> {
 
@@ -28,6 +28,16 @@ angular.module('myApp.room-search', ['ngRoute', 'myApp.listing'])
             roomSearchService.approveListing(id).then(() => {
                 this.filter();
             });
+        };
+
+        this.bookListing = (id, ownerID) => {
+            roomSearchService.bookListing(id, ownerID, this.startDate, this.endDate).then(() => {
+                $mdToast.show($mdToast.simple()
+                    .textContent("Booking completed successfully!")
+                    .hideDelay(2000));
+
+                this.filter();
+            })
         };
 
         const init =  ()=> {
