@@ -18,12 +18,12 @@ angular.module('myApp.room-search')
                 queryArguments += ", kosher: " + kosher;
             }
 
-            if(gender) {
-                queryArguments += ", gender: " + gender;
+            if(gender && gender !== "None") {
+                queryArguments += ", gender: \"" + gender + "\"";
             }
 
             if(languages && languages.length > 0) {
-                queryArguments += ", language: " + languages.join(',');
+                queryArguments += ", languages: \"" + languages.join(',') + "\"";
             }
 
             let query = {query: "{" +

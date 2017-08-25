@@ -16,7 +16,7 @@
                 <md-input-container>
                     <md-checkbox ng-model="roomCtrl.filterKosher"
                                  style="display: inline-block"
-                                 ng-change="roomCtrl.filter()">
+                                 ng-change="roomCtrl.kosher=false;roomCtrl.filter()">
                         Filter kosher?
                     </md-checkbox>
                     <span>
@@ -35,11 +35,11 @@
                 <md-input-container>
                     <label>Gender</label>
                     <md-select ng-model="roomCtrl.gender" md-on-close="roomCtrl.filter()">
-                        <md-option>None</md-option>
-                        <md-option ng-value="'male'">Male</md-option>
-                        <md-option ng-value="'female'">Female</md-option>
-                        <md-option ng-value="'trans'">Trans</md-option>
-                        <md-option ng-value="'other'">Other</md-option>
+                        <md-option md-option-empty>None</md-option>
+                        <md-option ng-value="'Male'">Male</md-option>
+                        <md-option ng-value="'Female'">Female</md-option>
+                        <md-option ng-value="'Trans'">Trans</md-option>
+                        <md-option ng-value="'Other'">Other</md-option>
                     </md-select>
                 </md-input-container>
             </div>
@@ -47,10 +47,10 @@
                 <md-input-container>
                     <label>Languages</label>
                     <md-select ng-model="roomCtrl.languages" md-on-close="roomCtrl.filter()" multiple>
-                        <md-option ng-value="'hebrew'">Hebrew</md-option>
-                        <md-option ng-value="'english'">English</md-option>
-                        <md-option ng-value="'arabic'">Arabic</md-option>
-                        <md-option ng-value="'russian'">Russian</md-option>
+                        <md-option ng-value="'Hebrew'">Hebrew</md-option>
+                        <md-option ng-value="'English'">English</md-option>
+                        <md-option ng-value="'Arabic'">Arabic</md-option>
+                        <md-option ng-value="'Russian'">Russian</md-option>
                     </md-select>
                 </md-input-container>
             </div>
