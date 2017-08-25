@@ -7,6 +7,7 @@ var graphqlHTTP = require('express-graphql');
 
 var schema = require('./graphql/schema.js');
 var dbs = require('./api/controllers/dbs.js');
+var bodyParser = require('body-parser');
 
 module.exports = app; // for testing
 
@@ -19,6 +20,11 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
         throw err;
     }
     app.use(cors());
+    app.use(bodyParser.urlencoded({
+        parameterLimit: 100000,
+        limit: '10mb',
+        extended: true
+    }));
 
     app.use('/', function (req, res, next) {
         dbs.getDb().then(db => {
