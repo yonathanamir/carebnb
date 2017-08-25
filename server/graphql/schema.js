@@ -46,9 +46,9 @@ let query = new graphql.GraphQLObjectType({
                             let taken = _.find(orders, o => {
                                 /*return (o.startDate > args.startDate && o.endDate < args.startDate)
                                         || (o.endDate > args.startDate && o.endDate < args.endDate)*/
-                                return ((args.startDate > o.startDate && args.startDate < o.endDate) || (args.endDate > o.startDate && args.endDate < o.endDate))
+                                return ((args.startDate >= o.startDate && args.startDate <= o.endDate) || (args.endDate >= o.startDate && args.endDate <= o.endDate))
                                     ||
-                                    ((o.startDate > args.startDate && o.startDate < args.endDate) || (o.endDate > args.startDate && o.endDate < args.endDate));
+                                    ((o.startDate >= args.startDate && o.startDate <= args.endDate) || (o.endDate >= args.startDate && o.endDate <= args.endDate));
                                 }
                             );
 
