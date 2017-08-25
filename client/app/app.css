@@ -134,7 +134,9 @@ body{
 
 .wizard button,
 .wizard input,
-.wizard label{
+.wizard label,
+.wizard-step.ng-scope.layout-align-center-stretch > div > md-input-container > label,
+.wizard-step.ng-scope.layout-align-center-stretch > div > md-input-container{
     color: white;
     border-color: white;
 }
@@ -155,4 +157,14 @@ body{
 
 .wizard-step.ng-scope.layout-align-center-stretch > div:nth-child(2) > md-input-container:nth-child(1){
     padding-right: 1.5em;
+}
+
+.wizard md-option > div.md-container > div,
+.wizard md-option.md-checkbox-enabled > div.md-container > div{
+    color: black;
+    background-color: black;
+}
+
+.wizard-step.ng-scope.layout-align-center-stretch > div > md-input-container > md-checkbox > div.md-container.md-ink-ripple > div.md-icon{
+    background-color: black;
 }

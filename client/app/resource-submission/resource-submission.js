@@ -11,6 +11,8 @@ angular.module('myApp.resource-submission', ['ngRoute'])
     }])
 
     .controller('resourceSubmissionCtrl', ['resourceSubmissionService', 'currentUser', function (service, currentUser) {
+        this.step = 0;
+        
         this.user = currentUser.getUser();
         this.address = this.user.contact.address;
         this.submit = () => {
