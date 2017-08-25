@@ -3,7 +3,7 @@
 .menu {
   list-style: none;
     margin-top: 0;
-  border-bottom: 0.1em solid black;
+  border-bottom: 0.1em solid #FF5A5F;
   margin-bottom: 2em;
   padding: 0 0 0.5em;
     padding-top: 0.5em;
@@ -14,7 +14,6 @@
 }
 
 .menu > li + li:before {
-  content: "|";
   padding-right: 0.3em;
 }
 
@@ -29,6 +28,7 @@ img.owner-face{
     width: 2em;
     color: #FF5A5F;
     cursor: pointer;
+    min-width: 8em;
 }
 
 .carebnb-menu-icon svg{
