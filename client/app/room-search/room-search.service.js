@@ -57,8 +57,4 @@ angular.module('myApp.room-search')
             return $http.post(gqlURL, query).then(o => o.data);
         }
 
-        function approveListing(id) {
-            return $http.get(url + id + "/approve/true" );
-        }
-
     }]);

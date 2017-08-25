@@ -1,4 +1,4 @@
-<h2>Room by {{listingData.owner.contact.name}}</h2>
+<h2>Room by <a href="#!/owner-approve?id={{listingData.owner.id}}">{{listingData.owner.contact.name}}</a></h2>
 
 <img ng-if="listingData.pictures" src={{listingData.pictures[0]}} />
 
@@ -8,5 +8,5 @@
 </ul>
 
 <h3>Is Room Approved? {{listingData.approved | approved}}</h3>
-<md-button ng-if="!(listingData.approved)" ng-click="approve(listingData.id)">Approve this listing</md-button>
+<md-button ng-if="!(listingData.approved)" ng-click="approveListing(listingData.id)">Approve this listing</md-button>
 <h3 ng-if="listingData.address">Room's Address: {{listingData.address}}</h3>
