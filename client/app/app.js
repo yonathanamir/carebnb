@@ -5,16 +5,16 @@ angular.module('myApp', [
     'ngRoute',
     'ngMaterial',
     'jkAngularCarousel',
-  'myApp.resource-submission',
-  'myApp.owner-submission',
+    'myApp.resource-submission',
+    'myApp.owner-submission',
     'myApp.room-search',
     'myApp.version',
     'naif.base64',
-  'myApp.resource-submission',
-  'myApp.resource-approve',
-  'myApp.owner-submission',
+    'myApp.resource-submission',
+    'myApp.resource-approve',
+    'myApp.owner-submission',
     'myApp.owner-approve',
-  'myApp.version'
+    'myApp.version'
 ]).
     config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');

@@ -9,6 +9,10 @@ angular.module('myApp')
         });
     }])
 
-    .controller('ownerIndexCtrl', [function () {
+    .controller('ownerIndexCtrl', ['ordersService', 'currentUser', 'resourceSubmissionService', function (ordersService, currentUser, resourceSubmissionService) {
+        this.user = currentUser.getUser();
+        ordersService.getOrders(user.id)
+            .then(orders => {
 
+            })
     }]);
