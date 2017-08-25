@@ -11,8 +11,12 @@ angular.module('myApp')
 
     .controller('ownerIndexCtrl', ['ordersService', 'currentUser', 'resourceSubmissionService', function (ordersService, currentUser, resourceSubmissionService) {
         this.user = currentUser.getUser();
+
+        this.orders = [];
         ordersService.getOrders(user.id)
             .then(orders => {
+                resourceSubmissionService.getResources().then(resources => {
 
+                })
             })
     }]);
