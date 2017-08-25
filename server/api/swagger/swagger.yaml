@@ -43,6 +43,25 @@ paths:
           schema:
             $ref: "#/definitions/Generic"
 
+  /resources/{resourceId}/approve/{isApproved}:
+    x-swagger-router-controller: resources
+    get:
+      operationId: approveResource
+      parameters:
+        - name: resourceId
+          in: path
+          required: true
+          type: string
+        - name: isApproved
+          in: path
+          required: true
+          type: boolean
+      responses:
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Generic"
+
   /owners:
     x-swagger-router-controller: owners
     get:
@@ -170,6 +189,8 @@ definitions:
         type: string
       confirmByOwner:
         type: boolean
+      owner:
+        type: string
 
   Approval:
     properties:
