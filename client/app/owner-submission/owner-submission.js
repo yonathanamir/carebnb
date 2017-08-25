@@ -10,15 +10,15 @@ angular.module('myApp.owner-submission', ['ngRoute'])
         });
     }])
 
-    .controller('ownerSubmissionCtrl', ['ownerSubmissionService', function (service) {
+    .controller('ownerSubmissionCtrl', ['ownerSubmissionService', 'currentUser', '$location', function (service, currentUser, $location) {
 
-        function alert2(message){
+        function alert2(message) {
             alert(message);
             throw message
         }
 
         this.submit = ()=> {
-            const pf = this.profilePicture ?`data:${this.profilePicture.filetype};base64,${this.profilePicture.base64}` : alert2('no profile picture');
+            const pf = this.profilePicture ? `data:${this.profilePicture.filetype};base64,${this.profilePicture.base64}` : alert2('no profile picture');
             const idp = this.idPicture ? `data:${this.idPicture.filetype};base64,${this.idPicture.base64}` : alert2('no id picture');
             service.addOwner({
                 contact: {
@@ -32,15 +32,16 @@ angular.module('myApp.owner-submission', ['ngRoute'])
                 },
                 profilePicture: pf,
                 howToContact: {
-                    whatsapp: this.contact.whatsapp ,
+                    whatsapp: this.contact.whatsapp,
                     call: this.contact.phone,
                     email: this.contact.email,
                     sms: this.contact.sms
                 },
-                password: this.password|| alert2('no password')
+                password: this.password || alert2('no password')
             })
-            .then(newUser =>{
-                    alert('added seccessfuly :)');
+                .then(newUser => {
+                    currentUser.switchUser(newUser);
+                    $location.path('/resource-submission')
                 });
         };
 

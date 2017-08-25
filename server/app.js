@@ -7,6 +7,7 @@ var graphqlHTTP = require('express-graphql');
 
 var schema = require('./graphql/schema.js');
 var dbs = require('./api/controllers/dbs.js');
+var bodyParser = require('body-parser');
 
 module.exports = app; // for testing
 
@@ -32,6 +33,9 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
             graphiql: true,
         })
     );
+
+    app.use(bodyParser({limit: '10mb'}));
+
     // install middleware
     swaggerExpress.register(app);
 

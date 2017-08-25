@@ -9,7 +9,11 @@ angular.module('myApp', [
   'myApp.owner-submission',
     'myApp.room-search',
     'myApp.version',
-    'naif.base64'
+    'naif.base64',
+  'myApp.resource-submission',
+  'myApp.owner-submission',
+    'myApp.owner-approve',
+  'myApp.version'
 ]).
     config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');

@@ -12,7 +12,7 @@ angular.module('myApp.resource-submission', ['ngRoute'])
 
     .controller('resourceSubmissionCtrl', ['resourceSubmissionService', 'currentUser', function (service, currentUser) {
         this.user = currentUser.getUser();
-
+        this.address = this.user.contact.address;
         this.submit = () => {
             const pics = [];
             if (this.pictures.length) {
@@ -23,12 +23,13 @@ angular.module('myApp.resource-submission', ['ngRoute'])
 
             service.addResource({
                 owner: this.user.id,
+                address: this.address,
                 pictures: pics,
                 requirements: {
-                    kosher: true,
+                    kosher: this.kosher,
                     genders: this.genderSelected,
                     languages: this.languageSelected,
-                    preferences: this.biography
+                    preferences: this.preferences
                 }
             })
         };

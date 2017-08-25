@@ -14,7 +14,7 @@ angular.module('myApp')
         function getUser(){
             let user = localStorage.getItem('user');
             if(user){
-                return JSON.stringify(user);
+                return JSON.parse(user);
             }
             else {
                 switchUser({
