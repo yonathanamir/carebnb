@@ -7,14 +7,6 @@
   padding: 0 0 0.5em;
 }
 
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
 .menu > li {
   display: inline;
 }
@@ -79,10 +71,43 @@ img.profile-picture{
     width: 50px;
 }
 
+html,
 body{
-    background-color: #FF5A5F;
+    background-color: white;
 }
 
 .menu{
     background-color: white;
 }
+
+.card-img{
+    width: 100%;
+    position: relative;
+}
+
+.card-img img{
+    width:inherit;
+    display: block;
+}
+
+.card-img md-switch{
+    margin: 0px;
+    position: absolute;
+    top: 3px;
+    right: 6px;
+}
+
+.owner-card{
+    width: 300px;
+    box-shadow: none;
+}
+
+.owner-card md-card-title{
+        padding: 0;
+    margin-top: 8px;
+}
+
+.owner-card md-card-title-text span{
+    padding: 0;
+}
+
