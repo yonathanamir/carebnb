@@ -15,7 +15,7 @@ angular.module('myApp.resource-submission', ['ngRoute'])
         this.address = this.user.contact.address;
         this.submit = () => {
             const pics = [];
-            if (this.pictures.length) {
+            if (this.pictures && this.pictures.length) {
                 this.pictures.forEach(pic => {
                     pics.push(`data:${pic.filetype|| 'image/jpeg'};base64,${pic.base64}`);
                 });
