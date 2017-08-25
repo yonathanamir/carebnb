@@ -33,14 +33,12 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
             graphiql: true,
         })
     );
+
+    app.use(bodyParser({limit: '10mb'}));
+
     // install middleware
     swaggerExpress.register(app);
 
-    app.use(bodyParser.urlencoded({
-        parameterLimit: 100000,
-        limit: '10mb',
-        extended: true
-    }));
     var port = process.env.PORT || 10010;
     app.listen(port);
 

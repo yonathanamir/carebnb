@@ -23,7 +23,7 @@ angular.module('myApp.resource-submission', ['ngRoute'])
 
             service.addResource({
                 owner: this.user.id,
-                address: '',
+                address: this.address,
                 pictures: pics,
                 requirements: {
                     kosher: true,
